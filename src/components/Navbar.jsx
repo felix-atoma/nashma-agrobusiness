@@ -1,95 +1,95 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { FaPhoneAlt } from "react-icons/fa";
 
 const Navbar = () => {
   const navStyle = {
-    backgroundColor: '#38a169', // Tailwind's bg-green-500
-    color: 'white',
-    padding: '1rem',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    width: '100%',
+    backgroundColor: "white",
+    color: "#38a169", // Tailwind's green-500
+    padding: "1rem",
+    boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+    width: "100%",
   };
 
   const containerStyle = {
-    maxWidth: '1200px', // Tailwind's container class
-    margin: '0 auto',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
-    flexWrap: 'wrap', // To make it responsive and wrap items
-  };
-
-  const h1Style = {
-    fontWeight: 'bold',
-    fontSize: '1.25rem', // Tailwind's text-xl
-    margin: '0',
+    maxWidth: "1200px",
+    margin: "0 auto",
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    flexWrap: "wrap",
   };
 
   const ulStyle = {
-    display: 'flex',
-    listStyleType: 'none',
-    padding: '0',
-    margin: '0',
-    flexWrap: 'wrap', // Wrap links in smaller screens
-    justifyContent: 'space-between',
-    gap: '1rem',
-  };
-
-  const liStyle = {
-    marginRight: '1rem', // Tailwind's space-x-4
+    display: "flex",
+    listStyleType: "none",
+    padding: "0",
+    margin: "0",
+    gap: "2.5rem", // Increased spacing between links
+    alignItems: "center",
   };
 
   const linkStyle = {
-    color: 'white',
-    textDecoration: 'none',
-    transition: 'color 0.3s',
+    color: "#38a169",
+    textDecoration: "none",
+    fontWeight: "bold",
+    position: "relative",
+    padding: "0.5rem 0", // Adds space around the link
   };
 
-  const hoverStyle = {
-    color: '#fbbf24', // Tailwind's hover:text-yellow-300
+  const linkHoverBarStyle = {
+    position: "absolute",
+    bottom: "-5px",
+    right: "0",
+    height: "3px",
+    backgroundColor: "#38a169",
+    width: "0%",
+    transition: "width 0.3s ease-in-out",
   };
 
-  const mediaQueryStyle = `
-    @media (max-width: 768px) {
-      .navbar-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .navbar-list {
-        flex-direction: column;
-        align-items: center;
-      }
-      .navbar-item {
-        margin-bottom: 1rem;
-      }
-    }
-  `;
+  const phoneContainerStyle = {
+    display: "flex",
+    alignItems: "center",
+    gap: "0.5rem",
+    backgroundColor: "#38a169",
+    padding: "0.5rem 1rem",
+    borderRadius: "4px",
+    color: "white",
+  };
 
   return (
-    <>
-      <style>{mediaQueryStyle}</style>
-      <nav style={navStyle}>
-        <div style={containerStyle} className="navbar-container">
-          <h1 style={h1Style}>Nashma Agrobusiness</h1>
-          <ul style={ulStyle} className="navbar-list">
-            <li style={liStyle} className="navbar-item">
-              <Link to="/" style={linkStyle} onMouseOver={(e) => e.target.style.color = hoverStyle.color} onMouseOut={(e) => e.target.style.color = linkStyle.color}>Home</Link>
+    <nav style={navStyle}>
+      <div style={containerStyle}>
+        <h1 style={{ fontWeight: "bold", fontSize: "1.5rem", color: "#38a169" }}>
+          Nashma Agrobusiness
+        </h1>
+        <ul style={ulStyle}>
+          {["Home", "About", "Services", "Blog", "Contact"].map((text, index) => (
+            <li key={index} style={{ position: "relative" }}>
+              <Link
+                to={`/${text.toLowerCase()}`}
+                style={linkStyle}
+                onMouseEnter={(e) =>
+                  (e.target.querySelector(".hover-bar").style.width = "100%")
+                }
+                onMouseLeave={(e) =>
+                  (e.target.querySelector(".hover-bar").style.width = "0%")
+                }
+              >
+                {text}
+                <span
+                  className="hover-bar"
+                  style={linkHoverBarStyle}
+                ></span>
+              </Link>
             </li>
-            <li style={liStyle} className="navbar-item">
-              <Link to="/about" style={linkStyle} onMouseOver={(e) => e.target.style.color = hoverStyle.color} onMouseOut={(e) => e.target.style.color = linkStyle.color}>About</Link>
-            </li>
-            <li style={liStyle} className="navbar-item">
-              <Link to="/projects" style={linkStyle} onMouseOver={(e) => e.target.style.color = hoverStyle.color} onMouseOut={(e) => e.target.style.color = linkStyle.color}>Projects</Link>
-            </li>
-            <li style={liStyle} className="navbar-item">
-              <Link to="/contact" style={linkStyle} onMouseOver={(e) => e.target.style.color = hoverStyle.color} onMouseOut={(e) => e.target.style.color = linkStyle.color}>Contact</Link>
-            </li>
-          </ul>
+          ))}
+        </ul>
+        <div style={phoneContainerStyle}>
+          <FaPhoneAlt />
+          <span>+233 123 456 789</span>
         </div>
-      </nav>
-    </>
+      </div>
+    </nav>
   );
 };
 
