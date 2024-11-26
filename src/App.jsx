@@ -6,8 +6,9 @@ import './App.css';
 import RootLayout from './layouts/RootLayout';
 import Home from './pages/Home';
 import About from './pages/About';
-import Project from './pages/Project'
-import Contact from './pages/Contact';        // Adjust path
+import Blog from './pages/Blog';         // Adjust path
+import Services from './pages/Services'; // Adjust path
+import Contact from './pages/Contact';   // Adjust path
 
 function App() {
   // Define the routes with RootLayout wrapping all pages
@@ -17,7 +18,7 @@ function App() {
       element: <RootLayout />,
       children: [
         {
-          path: "/",
+          path: "/home",
           element: <Home />,
         },
         {
@@ -25,8 +26,12 @@ function App() {
           element: <About />,
         },
         {
-          path: "/projects",
-          element: <Project />,
+          path: "/blog",
+          element: <Blog />, // Blog route
+        },
+        {
+          path: "/services",
+          element: <Services />, // Services route
         },
         {
           path: "/contact",

@@ -4,15 +4,6 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 const Navbar = () => {
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
-
-  const handleNavigation = (path) => {
-    setLoading(true);
-    setTimeout(() => {
-      navigate(path);
-      setLoading(false);
-    }, 1000); // Simulate a 1-second load time
-  };
 
   const navStyle = {
     backgroundColor: "white",
@@ -109,6 +100,13 @@ const Navbar = () => {
     width: "50px",
   };
 
+  const handleNavigation = (path) => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false); // Simulate navigation completion
+    }, 1000); // Simulate a 1-second load time
+  };
+
   return (
     <>
       {loading && (
@@ -135,7 +133,8 @@ const Navbar = () => {
           <ul style={ulStyle}>
             {["Home", "About", "Services", "Blog", "Contact"].map((text, index) => (
               <li key={index} style={{ position: "relative" }}>
-                <span
+                <Link
+                  to={`/${text.toLowerCase()}`}
                   style={linkStyle}
                   onClick={() => handleNavigation(`/${text.toLowerCase()}`)}
                   onMouseEnter={(e) =>
@@ -150,7 +149,7 @@ const Navbar = () => {
                     className="hover-bar"
                     style={linkHoverBarStyle}
                   ></span>
-                </span>
+                </Link>
               </li>
             ))}
           </ul>
