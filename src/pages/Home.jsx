@@ -21,7 +21,7 @@ const Home = () => {
             lineHeight: '1.5',
           }}
         >
-          Welcome to Nashma Agrobusiness Ltd
+          Welcome to Nashma Agribusiness Ltd
         </h2>
         <p
           style={{

@@ -37,7 +37,7 @@ const About = () => {
             About Us
           </h2>
           <p style={paragraphStyle} className="paragraph">
-            We are a leading agrobusiness focused on sustainable farming practices and providing high-quality, locally sourced produce to our customers.
+            We are a leading agribusiness focused on sustainable farming practices and providing high-quality, locally sourced produce to our customers.
           </p>
         </div>
       </>
