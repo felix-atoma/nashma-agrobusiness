@@ -79,9 +79,8 @@ const ContactForm = () => {
             value={formData.message}
             onChange={handleChange}
             style={{
-              width: "100%", // Ensuring full width for all fields
+              width: "",
               padding: "1rem",
-              borderRadius: "6px",
               resize: "none",
               fontSize: "1rem",
             }}
@@ -96,9 +95,9 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               style={{
-                width: "100%", // Ensures the same width for all fields
+                width: "30%",
+                flex: 1, // Ensures equal width with other fields
                 padding: "1rem",
-                borderRadius: "6px",
                 fontSize: "1rem",
               }}
               required
@@ -110,9 +109,9 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               style={{
-                width: "100%", // Ensures the same width for all fields
+                width: "30%",
+                flex: 1, // Ensures equal width with other fields
                 padding: "1rem",
-                borderRadius: "6px",
                 fontSize: "1rem",
               }}
               required
@@ -125,9 +124,8 @@ const ContactForm = () => {
             value={formData.subject}
             onChange={handleChange}
             style={{
-              width: "100%", // Ensures the same width for all fields
+              width: "",
               padding: "1rem",
-              borderRadius: "6px",
               fontSize: "1rem",
             }}
             required
@@ -139,14 +137,13 @@ const ContactForm = () => {
               border: "2px solid #38A169", // Light green border
               backgroundColor: "white",
               color: "#38A169",
-              borderRadius: "6px",
               cursor: "pointer",
               fontWeight: "bold",
-              fontSize: "1.2rem", // Increased font size for button
-              width: "150px", // Button width reduced
+              fontSize: "1.2rem",
+              width: "150px",
               transition: "all 0.3s ease",
-              marginTop: "1rem", // Space above the button
-              alignSelf: "flex-start", // Align the button to the left
+              marginTop: "1rem",
+              alignSelf: "flex-start",
             }}
             onMouseEnter={(e) => {
               e.target.style.backgroundColor = "#38A169";
@@ -164,53 +161,36 @@ const ContactForm = () => {
         {/* Right: Contact Information */}
         <div
           style={{
+            marginTop: "0",
+            marginLeft: "5rem",
             flex: "1",
-            padding: "1rem",
-            marginTop: "0", // No extra margin needed
+            padding: "",
             display: "flex",
             flexDirection: "column",
-            gap: "2rem", // Space between each contact info section
+            gap: "3rem",
           }}
         >
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1rem",
-            }}
-          >
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <FaHome size={28} color="#38A169" />
             <div>
               <p style={{ fontWeight: "bold", margin: "0" }}>
-                Buttonwood, California
+              Accra, Ghana
               </p>
-              <p style={{ margin: "0" }}>Rosemead, CA 91770</p>
+              <p style={{ margin: "0" }}>123 Independence Avenue</p>
             </div>
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1rem",
-            }}
-          >
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <FaPhone size={28} color="#38A169" />
             <div>
-              <p style={{ margin: "0" }}>+1 253 565 2365</p>
+              <p style={{ margin: "0" }}>+233 30 123 4567</p>
               <p style={{ margin: "0" }}>Mon to Fri 9am to 6pm</p>
             </div>
           </div>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1rem",
-            }}
-          >
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <FaEnvelope size={28} color="#38A169" />
             <div>
-              <p style={{ margin: "0" }}>support@colorlib.com</p>
-              <p style={{ margin: "0" }}>Send us your query anytime!</p>
+              <p style={{ margin: "0" }}>info@nashma.agric</p>
+              <p style={{ margin: "0" }}>Reach out anytime!</p>
             </div>
           </div>
         </div>
