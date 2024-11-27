@@ -18,7 +18,7 @@ function App() {
       element: <RootLayout />,
       children: [
         {
-          path: "/",
+          path: "/home",
           element: <Home />,
         },
         {
