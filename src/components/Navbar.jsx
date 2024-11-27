@@ -1,17 +1,25 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { FaPhoneAlt } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { FaPhoneAlt, FaBars } from "react-icons/fa";
 
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const handleNavigation = (path) => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false); // Simulate navigation completion
+    }, 1000); // Simulate a 1-second load time
+  };
 
   const navStyle = {
     backgroundColor: "white",
     color: "#38a169",
     padding: "1rem",
     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
+    position: "fixed",
     width: "100%",
-    position: "relative",
     zIndex: "10",
   };
 
@@ -22,29 +30,33 @@ const Navbar = () => {
     justifyContent: "space-between",
     alignItems: "center",
     flexWrap: "wrap",
+    gap: "1rem",
   };
 
   const ulStyle = {
-    display: "flex",
+    display: menuOpen ? "block" : "flex",
     listStyleType: "none",
     padding: "0",
     margin: "0",
-    gap: "2.5rem",
+    gap: "1rem",
     alignItems: "center",
+    flexDirection: menuOpen ? "column" : "row",
+    textAlign: menuOpen ? "center" : "left",
   };
 
   const linkStyle = {
     color: "#38a169",
     textDecoration: "none",
     fontWeight: "bold",
+    fontSize: "1rem",
+    padding: "0.5rem",
     position: "relative",
-    padding: "0.5rem 0",
   };
 
-  const linkHoverBarStyle = {
+  const hoverBarStyle = {
     position: "absolute",
     bottom: "-5px",
-    right: "0",
+    left: "0",
     height: "3px",
     backgroundColor: "#38a169",
     width: "0%",
@@ -56,9 +68,17 @@ const Navbar = () => {
     alignItems: "center",
     gap: "0.5rem",
     backgroundColor: "#38a169",
-    padding: "0.5rem 1rem",
+    padding: "0.3rem 0.8rem",
     borderRadius: "4px",
     color: "white",
+    flexShrink: "0",
+  };
+
+  const hamburgerStyle = {
+    display: "none",
+    fontSize: "1.5rem",
+    cursor: "pointer",
+    color: "#38a169",
   };
 
   const spinnerStyle = {
@@ -100,12 +120,37 @@ const Navbar = () => {
     width: "50px",
   };
 
-  const handleNavigation = (path) => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false); // Simulate navigation completion
-    }, 1000); // Simulate a 1-second load time
-  };
+  const mediaQuery = `
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+      }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+      .phone-container {
+        order: -1;
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 1rem;
+      }
+    }
+
+    @media (max-width: 375px) {
+      .phone-container {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.9rem;
+      }
+      .nav-links li {
+        font-size: 0.9rem;
+      }
+    }
+  `;
 
   return (
     <>
@@ -113,7 +158,7 @@ const Navbar = () => {
         <div style={spinnerStyle}>
           <div style={logoContainerStyle}>
             <img
-              src="/path-to-logo.png" // Replace with your logo path
+              src="/path-to-logo.png"
               alt="Logo"
               style={logoStyle}
             />
@@ -125,18 +170,32 @@ const Navbar = () => {
         <div style={containerStyle}>
           {/* Logo Section */}
           <img
-            src="/path-to-logo.png" // Replace with your logo path
+            src="/path-to-logo.png"
             alt="Logo"
-            style={{ height: "50px", marginRight: "1rem" }}
+            style={{ height: "40px", marginRight: "1rem" }}
           />
+
+          {/* Hamburger Icon */}
+          <FaBars
+            className="hamburger"
+            style={hamburgerStyle}
+            onClick={() => setMenuOpen(!menuOpen)}
+          />
+
           {/* Navigation Links */}
-          <ul style={ulStyle}>
+          <ul
+            className={`nav-links ${menuOpen ? "open" : ""}`}
+            style={ulStyle}
+          >
             {["Home", "About", "Services", "Blog", "Contact"].map((text, index) => (
               <li key={index} style={{ position: "relative" }}>
                 <Link
                   to={`/${text.toLowerCase()}`}
                   style={linkStyle}
-                  onClick={() => handleNavigation(`/${text.toLowerCase()}`)}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    handleNavigation(`/${text.toLowerCase()}`);
+                  }}
                   onMouseEnter={(e) =>
                     (e.target.querySelector(".hover-bar").style.width = "100%")
                   }
@@ -147,27 +206,30 @@ const Navbar = () => {
                   {text}
                   <span
                     className="hover-bar"
-                    style={linkHoverBarStyle}
+                    style={hoverBarStyle}
                   ></span>
                 </Link>
               </li>
             ))}
           </ul>
+
           {/* Contact Number */}
-          <div style={phoneContainerStyle}>
+          <div className="phone-container" style={phoneContainerStyle}>
             <FaPhoneAlt />
             <span>+233 123 456 789</span>
           </div>
         </div>
       </nav>
 
-      {/* CSS for Spinner */}
+      {/* CSS for Spinner and Media Queries */}
       <style>
         {`
           @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
           }
+
+          ${mediaQuery}
         `}
       </style>
     </>
