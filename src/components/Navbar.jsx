@@ -184,34 +184,35 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <ul
-            className={`nav-links ${menuOpen ? "open" : ""}`}
-            style={ulStyle}
-          >
-            {["Home", "About", "Services", "Blog", "Contact"].map((text, index) => (
-              <li key={index} style={{ position: "relative" }}>
-                <Link
-                  to={`/${text.toLowerCase()}`}
-                  style={linkStyle}
-                  onClick={() => {
-                    setMenuOpen(false);
-                    handleNavigation(`/${text.toLowerCase()}`);
-                  }}
-                  onMouseEnter={(e) =>
-                    (e.target.querySelector(".hover-bar").style.width = "100%")
-                  }
-                  onMouseLeave={(e) =>
-                    (e.target.querySelector(".hover-bar").style.width = "0%")
-                  }
-                >
-                  {text}
-                  <span
-                    className="hover-bar"
-                    style={hoverBarStyle}
-                  ></span>
-                </Link>
-              </li>
-            ))}
-          </ul>
+  className={`nav-links ${menuOpen ? "open" : ""}`}
+  style={ulStyle}
+>
+  {["Home", "About", "Services", "Blog", "Contact"].map((text, index) => (
+    <li key={index} style={{ position: "relative" }}>
+      <Link
+        to={text === "Home" ? "/" : `/${text.toLowerCase()}`}
+        style={linkStyle}
+        onClick={() => {
+          setMenuOpen(false);
+          handleNavigation(text === "Home" ? "/" : `/${text.toLowerCase()}`);
+        }}
+        onMouseEnter={(e) =>
+          (e.target.querySelector(".hover-bar").style.width = "100%")
+        }
+        onMouseLeave={(e) =>
+          (e.target.querySelector(".hover-bar").style.width = "0%")
+        }
+      >
+        {text}
+        <span
+          className="hover-bar"
+          style={hoverBarStyle}
+        ></span>
+      </Link>
+    </li>
+  ))}
+</ul>
+
 
           {/* Contact Number */}
           <div className="phone-container" style={phoneContainerStyle}>
