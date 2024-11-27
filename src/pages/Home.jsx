@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ExperienceSection from "../components/ExperienceSection";
-
+import ServicesSection from "../components/servicesSection";
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -118,6 +118,7 @@ const Home = () => {
         }}
       >
         <ExperienceSection />
+        <ServicesSection/>
       </div>
     </div>
   );
