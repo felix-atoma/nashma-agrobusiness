@@ -1,86 +1,124 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from "react";
+import ExperienceSection from "../components/ExperienceSection";
+
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      image: "/path-to-image1.jpg",
+      title: "Empowering Farmers",
+      description: "Connecting farmers to customers for better opportunities.",
+    },
+    {
+      image: "/path-to-image2.jpg",
+      title: "Sustainable Agriculture",
+      description: "Promoting eco-friendly and sustainable farming practices.",
+    },
+  ];
 
   useEffect(() => {
-    // Simulate an API call or delay
-    const timer = setTimeout(() => {
-      setIsLoading(false); // Set loading to false after 2 seconds
-    }, 2000);
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 5000); // Change slide every 5 seconds
 
-    // Cleanup timer on component unmount
-    return () => clearTimeout(timer);
-  }, []);
+    return () => clearInterval(interval);
+  }, [slides.length]);
 
-  if (isLoading) {
-    // Display loading spinner while isLoading is true
-    return (
+  return (
+    <div>
+      {/* Carousel */}
       <div
         style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          height: '100vh',
-          backgroundColor: '#f7fafc',
+          position: "relative",
+          height: "100vh", // Full viewport height
+          width: "100%",
+          overflow: "hidden",
         }}
       >
+        {slides.map((slide, index) => (
+          <div
+            key={index}
+            style={{
+              position: "absolute",
+              top: 0,
+              left: index === currentSlide ? "0" : "100%",
+              width: "100%",
+              height: "100%",
+              backgroundImage: `url(${slide.image})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              transition: "left 0.8s ease-in-out",
+              zIndex: index === currentSlide ? 1 : 0,
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+                textAlign: "center",
+                color: "#fff",
+                textShadow: "2px 2px 4px rgba(0, 0, 0, 0.7)",
+                padding: "20px",
+              }}
+            >
+              <h1
+                style={{
+                  fontSize: "3rem",
+                  fontWeight: "bold",
+                  marginBottom: "16px",
+                }}
+              >
+                {slide.title}
+              </h1>
+              <p style={{ fontSize: "1.5rem", lineHeight: "1.6" }}>
+                {slide.description}
+              </p>
+            </div>
+          </div>
+        ))}
+        {/* Carousel Dots */}
         <div
           style={{
-            border: '4px solid #e2e8f0', // Light gray border
-            borderTop: '4px solid #2d3748', // Dark gray border
-            borderRadius: '50%',
-            width: '40px',
-            height: '40px',
-            animation: 'spin 1s linear infinite',
+            position: "absolute",
+            bottom: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            display: "flex",
+            gap: "10px",
           }}
-        ></div>
-        {/* Add spinner animation */}
-        <style>{`
-          @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-        `}</style>
+        >
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              style={{
+                width: "12px",
+                height: "12px",
+                borderRadius: "50%",
+                border: "none",
+                backgroundColor:
+                  index === currentSlide ? "#fff" : "rgba(255, 255, 255, 0.5)",
+                cursor: "pointer",
+              }}
+            ></button>
+          ))}
+        </div>
       </div>
-    );
-  }
 
-  // Main content of the Home page
-  return (
-    <div
-      style={{
-        padding: '24px',
-        backgroundColor: '#f7fafc',
-        minHeight: '100vh',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        textAlign: 'center',
-      }}
-    >
-      <h2
+      {/* Experience Section */}
+      <div
         style={{
-          fontSize: '2rem',
-          fontWeight: 'bold',
-          color: '#2d3748',
-          marginBottom: '16px',
-          lineHeight: '1.5',
+          padding: "40px 20px",
+          backgroundColor: "#f7fafc",
+          textAlign: "center",
         }}
       >
-        Welcome to Nashma Agricbusiness Ltd
-      </h2>
-      <p
-        style={{
-          fontSize: '1.25rem',
-          color: '#4a5568',
-          marginBottom: '24px',
-          lineHeight: '1.6',
-        }}
-      >
-        We are committed to providing top-quality agricultural products.
-      </p>
+        <ExperienceSection />
+      </div>
     </div>
   );
 };
