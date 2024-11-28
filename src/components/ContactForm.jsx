@@ -61,7 +61,16 @@ const ContactForm = () => {
       >
         Get in Touch
       </h2>
-      <div style={{ display: "flex", gap: "4rem", alignItems: "flex-start" }}>
+
+      <div
+        style={{
+          display: "flex",
+          gap: "4rem",
+          alignItems: "flex-start",
+          flexDirection: "row", // Default: row for larger screens
+          flexWrap: "wrap", // Allow wrapping for smaller screens
+        }}
+      >
         {/* Left: Contact Form */}
         <form
           onSubmit={handleSubmit}
@@ -79,7 +88,6 @@ const ContactForm = () => {
             value={formData.message}
             onChange={handleChange}
             style={{
-              width: "",
               padding: "1rem",
               resize: "none",
               fontSize: "1rem",
@@ -87,7 +95,14 @@ const ContactForm = () => {
             rows="6"
             required
           />
-          <div style={{ display: "flex", gap: "1.5rem", width: "100%" }}>
+          <div
+            style={{
+              display: "flex",
+              gap: "1.5rem",
+              width: "100%",
+              flexWrap: "wrap", // Allow inputs to wrap on smaller screens
+            }}
+          >
             <input
               type="text"
               name="name"
@@ -95,8 +110,7 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               style={{
-                width: "30%",
-                flex: 1, // Ensures equal width with other fields
+                flex: "1", // Makes each input flexible
                 padding: "1rem",
                 fontSize: "1rem",
               }}
@@ -109,8 +123,7 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               style={{
-                width: "30%",
-                flex: 1, // Ensures equal width with other fields
+                flex: "1", // Makes each input flexible
                 padding: "1rem",
                 fontSize: "1rem",
               }}
@@ -124,7 +137,6 @@ const ContactForm = () => {
             value={formData.subject}
             onChange={handleChange}
             style={{
-              width: "",
               padding: "1rem",
               fontSize: "1rem",
             }}
@@ -162,19 +174,19 @@ const ContactForm = () => {
         <div
           style={{
             marginTop: "0",
-            marginLeft: "5rem",
             flex: "1",
             padding: "",
             display: "flex",
             flexDirection: "column",
             gap: "3rem",
+            marginLeft: "5rem", // Margin for larger screens
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <FaHome size={28} color="#38A169" />
             <div>
               <p style={{ fontWeight: "bold", margin: "0" }}>
-              Accra, Ghana
+                Accra, Ghana
               </p>
               <p style={{ margin: "0" }}>123 Independence Avenue</p>
             </div>

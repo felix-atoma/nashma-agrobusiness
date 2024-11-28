@@ -34,14 +34,12 @@ const Navbar = () => {
   };
 
   const ulStyle = {
-    display: menuOpen ? "block" : "flex",
+    display: "flex",
     listStyleType: "none",
     padding: "0",
     margin: "0",
     gap: "1rem",
     alignItems: "center",
-    flexDirection: menuOpen ? "column" : "row",
-    textAlign: menuOpen ? "center" : "left",
   };
 
   const linkStyle = {
@@ -75,7 +73,7 @@ const Navbar = () => {
   };
 
   const hamburgerStyle = {
-    display: "none",
+    display: "none", // Default hidden
     fontSize: "1.5rem",
     cursor: "pointer",
     color: "#38a169",
@@ -126,12 +124,13 @@ const Navbar = () => {
         display: block;
       }
       .nav-links {
-        display: none;
-      }
-      .nav-links.open {
-        display: flex;
+        display: none; /* Hide navigation links by default on small screens */
         flex-direction: column;
         width: 100%;
+        align-items: center;
+      }
+      .nav-links.open {
+        display: flex; /* Show navigation links when menu is open */
       }
       .phone-container {
         order: -1;
@@ -170,7 +169,7 @@ const Navbar = () => {
         <div style={containerStyle}>
           {/* Logo Section */}
           <img
-            src="/path-to-logo.png"
+            src="src/assets/logo (2) (1).png"
             alt="Logo"
             style={{ height: "40px", marginRight: "1rem" }}
           />
@@ -184,35 +183,31 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <ul
-  className={`nav-links ${menuOpen ? "open" : ""}`}
-  style={ulStyle}
->
-  {["Home", "About", "Services", "Blog", "Contact"].map((text, index) => (
-    <li key={index} style={{ position: "relative" }}>
-      <Link
-        to={text === "Home" ? "/" : `/${text.toLowerCase()}`}
-        style={linkStyle}
-        onClick={() => {
-          setMenuOpen(false);
-          handleNavigation(text === "Home" ? "/" : `/${text.toLowerCase()}`);
-        }}
-        onMouseEnter={(e) =>
-          (e.target.querySelector(".hover-bar").style.width = "100%")
-        }
-        onMouseLeave={(e) =>
-          (e.target.querySelector(".hover-bar").style.width = "0%")
-        }
-      >
-        {text}
-        <span
-          className="hover-bar"
-          style={hoverBarStyle}
-        ></span>
-      </Link>
-    </li>
-  ))}
-</ul>
-
+            className={`nav-links ${menuOpen ? "open" : ""}`}
+            style={ulStyle}
+          >
+            {["Home", "About", "Services", "Blog", "Contact"].map((text, index) => (
+              <li key={index} style={{ position: "relative" }}>
+                <Link
+                  to={text === "Home" ? "/" : `/${text.toLowerCase()}`}
+                  style={linkStyle}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    handleNavigation(text === "Home" ? "/" : `/${text.toLowerCase()}`);
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.target.querySelector(".hover-bar").style.width = "100%")
+                  }
+                  onMouseLeave={(e) =>
+                    (e.target.querySelector(".hover-bar").style.width = "0%")
+                  }
+                >
+                  {text}
+                  <span className="hover-bar" style={hoverBarStyle}></span>
+                </Link>
+              </li>
+            ))}
+          </ul>
 
           {/* Contact Number */}
           <div className="phone-container" style={phoneContainerStyle}>
