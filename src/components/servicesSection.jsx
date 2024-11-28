@@ -6,7 +6,7 @@ const ServiceCard = ({ image, title, description, servicePath }) => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate("/services"); // Navigate to the service page
+    navigate(servicePath); // Navigate to the specific service page
   };
 
   return (
@@ -14,17 +14,16 @@ const ServiceCard = ({ image, title, description, servicePath }) => {
       style={{
         display: "flex",
         flexDirection: "row",
-        backgroundColor: "#fff",
+        backgroundColor: "#d4edda", // Light green background for the entire card
         borderRadius: "8px",
         boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
         overflow: "hidden",
-        padding: "16px",
-        gap: "16px",
         alignItems: "center",
+        marginBottom: "20px",
       }}
     >
       {/* Image */}
-      <div style={{ flex: "0 0 150px" }}>
+      <div style={{ flex: 1 }}>
         <img
           src={image}
           alt={title}
@@ -32,13 +31,20 @@ const ServiceCard = ({ image, title, description, servicePath }) => {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            borderRadius: "8px",
           }}
         />
       </div>
 
       {/* Content */}
-      <div style={{ flex: 1 }}>
+      <div
+        style={{
+          flex: 1,
+          padding: "16px",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+        }}
+      >
         <h3
           style={{
             fontSize: "1.5rem",
@@ -90,16 +96,17 @@ const ServiceCard = ({ image, title, description, servicePath }) => {
 const ServicesSection = () => {
   const services = [
     {
-      image: "/path-to-service1.jpg",
+      image: "src/assets/services1.png",
       title: "Crop Cultivation",
-      description: "We provide expert advice and tools for sustainable crop cultivation.",
-      servicePath: "/services/crop-cultivation", // Path to the service page
+      description:
+        "We provide expert advice and tools for sustainable crop cultivation.",
+      servicePath: "/services/crop-cultivation",
     },
     {
-      image: "/path-to-service2.jpg",
+      image: "src/assets/services2.png",
       title: "Livestock Management",
       description: "Get the best resources for effective livestock management.",
-      servicePath: "/services/livestock-management", // Path to the service page
+      servicePath: "/services/livestock-management",
     },
   ];
 

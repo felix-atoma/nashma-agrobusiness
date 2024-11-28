@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from "react";
 import ExperienceSection from "../components/ExperienceSection";
 import ServicesSection from "../components/servicesSection";
+import AgribusinessCounter from "../components/AgribusinessCounter";
+import WhyChooseUs from "../components/WhyChooseUs";
+import ContactPage from "../components/ContactPage";
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
     {
-      image: "/path-to-image1.jpg",
+      image: "src/assets/h1_hero.png",
       title: "Empowering Farmers",
       description: "Connecting farmers to customers for better opportunities.",
     },
     {
-      image: "/path-to-image2.jpg",
+      image: "src/assets/h1_hero2.png",
       title: "Sustainable Agriculture",
       description: "Promoting eco-friendly and sustainable farming practices.",
     },
@@ -46,13 +49,23 @@ const Home = () => {
               left: index === currentSlide ? "0" : "100%",
               width: "100%",
               height: "100%",
-              backgroundImage: `url(${slide.image})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
+              backgroundColor: "#000", // To avoid white spaces during transition
+              display: "flex",
+              justifyContent: "center", // Horizontally center the image
+              alignItems: "center", // Vertically center the image
               transition: "left 0.8s ease-in-out",
               zIndex: index === currentSlide ? 1 : 0,
             }}
           >
+            <img
+              src={slide.image}
+              alt={slide.title}
+              style={{
+                width: "100%", // Ensures the image stretches to fill the container
+                height: "100%", // Ensures the image stretches to fill the container
+                objectFit: "cover", // Ensures the image covers the entire container while maintaining its aspect ratio
+              }}
+            />
             <div
               style={{
                 position: "absolute",
@@ -80,6 +93,7 @@ const Home = () => {
             </div>
           </div>
         ))}
+
         {/* Carousel Dots */}
         <div
           style={{
@@ -118,7 +132,10 @@ const Home = () => {
         }}
       >
         <ExperienceSection />
-        <ServicesSection/>
+        <ServicesSection />
+        <AgribusinessCounter />
+        <WhyChooseUs />
+        <ContactPage />
       </div>
     </div>
   );

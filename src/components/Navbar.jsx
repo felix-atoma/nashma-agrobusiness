@@ -19,10 +19,12 @@ const Navbar = () => {
     padding: "1rem",
     boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)",
     position: "fixed",
+    top: 0,
+    left: 0,
     width: "100%",
-    zIndex: "10",
+    zIndex: 1000, // Ensure Navbar is above content
   };
-
+  
   const containerStyle = {
     maxWidth: "1200px",
     margin: "0 auto",

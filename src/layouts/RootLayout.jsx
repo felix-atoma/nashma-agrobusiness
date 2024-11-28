@@ -6,51 +6,46 @@ const RootLayout = () => {
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh',
+        top: 0,
         margin: 0,
         padding: 0,
-        boxSizing: 'border-box',
+        width: '100vw', // Full viewport width
+        height: '100vh', // Full viewport height
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between', // Space out Navbar, content, and Footer
         overflowX: 'hidden', // Prevent horizontal scrolling
       }}
     >
-      {/* Navbar fixed to the top */}
+      {/* Navbar */}
       <div
         style={{
-          position: 'fixed',
+          position: 'sticky', // Sticks to the top when scrolling
           top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 1000, // Ensure Navbar is above content
+          zIndex: 50, // Ensures Navbar is above other elements
+          width: '100%',
+          backgroundColor: 'white', // Navbar background color
+          boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)', // Optional shadow for better visibility
         }}
       >
         <Navbar />
       </div>
 
-      {/* Main Content */}
+      {/* Main content area filling remaining space */}
       <main
         style={{
-          flexGrow: 1,
-          marginTop: '4rem', // Account for Navbar height
-          marginBottom: '4rem', // Account for Footer height
-          display: 'flex',
-          flexDirection: 'column',
+          flex: 1, // Fills the remaining vertical space
+          margin: 0,
+          padding: 0,
+          width: '100vw', // Full viewport width
         }}
       >
-        <Outlet />
+        <Outlet /> {/* Child routes will render here */}
       </main>
 
-      {/* Footer fixed to the bottom */}
-      <div
-        style={{
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          zIndex: 1000, // Ensure Footer is above content
-        }}
-      >
+      {/* Contact and Footer */}
+      <div style={{ width: '100%', margin: 0, padding: 0 }}>
+        
         <Footer />
       </div>
     </div>
