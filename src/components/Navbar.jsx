@@ -159,7 +159,7 @@ const Navbar = () => {
         <div style={spinnerStyle}>
           <div style={logoContainerStyle}>
             <img
-              src="/path-to-logo.png"
+              src="src/assets/loder.png"
               alt="Logo"
               style={logoStyle}
             />

@@ -29,32 +29,39 @@ const Counter = ({ target }) => {
   useEffect(() => {
     let start = 0;
     const duration = 2000; // Animation duration in ms
-    const increment = target / (duration / 16); // Assuming 60fps
+    const startTime = performance.now();
 
-    const interval = setInterval(() => {
-      start += increment;
-      if (start >= target) {
-        start = target;
-        clearInterval(interval);
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1); // Clamp between 0 and 1
+      const value = Math.floor(progress * target);
+
+      setCount(value);
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
       }
-      setCount(Math.floor(start));
-    }, 16);
+    };
 
-    return () => clearInterval(interval);
+    requestAnimationFrame(animate);
+
+    return () => cancelAnimationFrame(animate);
   }, [target]);
 
   return <h2 style={counterStyle}>{count}+</h2>;
 };
 
+// Styles (unchanged)
 const containerStyle = {
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
   alignItems: "center",
-  height: "25vh", // Quarter-page height
   width: "100%",
+  padding: "2rem",
   backgroundColor: "#FFFFFF",
   position: "relative",
+  boxSizing: "border-box",
 };
 
 const contentStyle = {
@@ -67,11 +74,13 @@ const contentStyle = {
 
 const itemStyle = {
   textAlign: "center",
+  flex: "1 1 200px",
+  margin: "1rem 0",
 };
 
 const counterStyle = {
   fontSize: "2.5rem",
-  color: "#008000", // Green for the numbers
+  color: "#008000",
   fontWeight: "bold",
   margin: "0",
 };
@@ -86,7 +95,7 @@ const textStyle = {
 const lineStyle = {
   width: "100%",
   height: "2px",
-  backgroundColor: "#CCCCCC", // Light grey for the line
+  backgroundColor: "#CCCCCC",
   position: "absolute",
   bottom: 0,
 };

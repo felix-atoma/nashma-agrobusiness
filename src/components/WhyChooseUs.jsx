@@ -1,60 +1,81 @@
-import React from "react";
+import React, { useState } from "react";
 import { FiPhoneCall } from "react-icons/fi";
-import { useNavigate } from "react-router-dom"; // For navigation
+import { useNavigate } from "react-router-dom";
 
 const WhyChooseUs = () => {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate("/about"); // Redirects to the About page
+    setLoading(true);
+    setTimeout(() => {
+      navigate("/about"); // Navigate after the simulated loading
+      setLoading(false);
+    }, 1000); // Simulate a 1-second load time
   };
 
   return (
-    <div style={containerStyle}>
-      <div style={textContentStyle}>
-        <h1 style={headingStyle}>Why you should choose us</h1>
-        <p style={paragraphStyle}>
-          Technological information and others, in addition to information about companies in the sector, 
-          list of any and all companies related to agribusiness.
-        </p>
-        <p style={paragraphStyle}>
-          Technological information and others, in addition to information about companies.
-        </p>
-        <p style={paragraphStyle}>
-          Technological information and others, in addition to information about companies.
-        </p>
-        <p style={paragraphStyle}>
-          Technological information and others, in addition to information about companies.
-        </p>
-        <button
-          style={buttonStyle}
-          onMouseEnter={(e) => (e.target.style.backgroundColor = "#38A169")} // Gradual green hover
-          onMouseLeave={(e) => (e.target.style.backgroundColor = "#71B34A")}
-          onClick={handleButtonClick}
-        >
-          <FiPhoneCall style={{ marginRight: "8px" }} />
-          (10) 892-293 2678
-        </button>
+    <>
+      {loading && (
+        <div style={spinnerStyle}>
+          <div style={logoContainerStyle}>
+            <img
+              src="src/assets/logo (2) (1).png"
+              alt="Logo"
+              style={logoStyle}
+            />
+            <div style={ringStyle}></div>
+          </div>
+        </div>
+      )}
+      <div style={containerStyle}>
+        <div style={textContentStyle}>
+          <h1 style={headingStyle}>Why you should choose us</h1>
+          <p style={paragraphStyle}>
+            Technological information and others, in addition to information about companies in the sector,
+            list of any and all companies related to agribusiness.
+          </p>
+          <p style={paragraphStyle}>
+            Technological information and others, in addition to information about companies.
+          </p>
+          <p style={paragraphStyle}>
+            Technological information and others, in addition to information about companies.
+          </p>
+          <p style={paragraphStyle}>
+            Technological information and others, in addition to information about companies.
+          </p>
+          <button
+            style={buttonStyle}
+            onMouseEnter={(e) => (e.target.style.backgroundColor = "#38A169")}
+            onMouseLeave={(e) => (e.target.style.backgroundColor = "#71B34A")}
+            onClick={handleButtonClick}
+          >
+            <FiPhoneCall style={{ marginRight: "8px" }} />
+            (10) 892-293 2678
+          </button>
+        </div>
+        <div style={imageContentStyle}>
+          <img
+            src="src/assets/about2 (1).png"
+            alt="Agribusiness Illustration"
+            style={imageStyle}
+          />
+        </div>
       </div>
-      <div style={imageContentStyle}>
-        <img
-          src="src/assets/about2 (1).png"
-          alt="Agribusiness Illustration"
-          style={imageStyle}
-        />
-      </div>
-    </div>
+    </>
   );
 };
 
 const containerStyle = {
   display: "flex",
+  flexDirection: "row", // Row layout for larger screens
   justifyContent: "space-between",
   alignItems: "center",
   padding: "2rem",
   backgroundColor: "#FFFFFF",
-  height: "100vh", // Full page height
+  height: "100vh",
   boxSizing: "border-box",
+  gap: "1.5rem", // Space between text and image sections
 };
 
 const textContentStyle = {
@@ -64,7 +85,7 @@ const textContentStyle = {
 
 const headingStyle = {
   fontSize: "2.5rem",
-  color: "#38A169", // Green color
+  color: "#38A169",
   marginBottom: "1rem",
 };
 
@@ -78,7 +99,7 @@ const paragraphStyle = {
 const buttonStyle = {
   display: "flex",
   alignItems: "center",
-  backgroundColor: "#71B34A", // Default green color
+  backgroundColor: "#71B34A",
   color: "#FFFFFF",
   border: "none",
   borderRadius: "8px",
@@ -88,13 +109,14 @@ const buttonStyle = {
   cursor: "pointer",
   marginTop: "1rem",
   boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-  transition: "background-color 0.3s ease", // Smooth transition for hover effect
+  transition: "background-color 0.3s ease",
 };
 
 const imageContentStyle = {
   flex: 1,
   display: "flex",
-  justifyContent: "flex-end",
+  justifyContent: "center",
+  alignItems: "center",
 };
 
 const imageStyle = {
@@ -103,5 +125,56 @@ const imageStyle = {
   objectFit: "cover",
   borderRadius: "8px",
 };
+
+// Spinner Styles
+const spinnerStyle = {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100vh",
+  backgroundColor: "white",
+  position: "fixed",
+  top: "0",
+  left: "0",
+  width: "100%",
+  zIndex: "100",
+};
+
+const logoContainerStyle = {
+  position: "relative",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100px",
+  width: "100px",
+};
+
+const ringStyle = {
+  position: "absolute",
+  top: "0",
+  left: "0",
+  height: "100%",
+  width: "100%",
+  border: "5px solid #38A169",
+  borderRadius: "50%",
+  borderTopColor: "transparent",
+  animation: "spin 1s linear infinite",
+};
+
+const logoStyle = {
+  height: "50px",
+  width: "50px",
+};
+
+// CSS for Spinner Animation
+const styleSheet = document.createElement("style");
+styleSheet.type = "text/css";
+styleSheet.innerText = `
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+`;
+document.head.appendChild(styleSheet);
 
 export default WhyChooseUs;

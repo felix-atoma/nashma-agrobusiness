@@ -20,10 +20,11 @@ const ServiceCard = ({ image, title, description, servicePath }) => {
         overflow: "hidden",
         alignItems: "center",
         marginBottom: "20px",
+        flexWrap: "wrap", // Ensure wrapping for smaller screens
       }}
     >
       {/* Image */}
-      <div style={{ flex: 1 }}>
+      <div style={{ flex: "1 1 100px", maxWidth: "100%" }}>
         <img
           src={image}
           alt={title}
@@ -38,11 +39,12 @@ const ServiceCard = ({ image, title, description, servicePath }) => {
       {/* Content */}
       <div
         style={{
-          flex: 1,
+          flex: "1 1 300px", // Allow the text to take up space while remaining responsive
           padding: "16px",
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
+          minWidth: "250px", // Ensure a minimum width for text content
         }}
       >
         <h3
@@ -111,7 +113,12 @@ const ServicesSection = () => {
   ];
 
   return (
-    <div style={{ padding: "40px 20px", backgroundColor: "#f7fafc" }}>
+    <div
+      style={{
+        padding: "40px 20px",
+        backgroundColor: "#f7fafc",
+      }}
+    >
       <h2
         style={{
           fontSize: "2.5rem",
@@ -125,7 +132,7 @@ const ServicesSection = () => {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", // Responsive grid layout
           gap: "20px",
         }}
       >
