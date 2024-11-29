@@ -159,7 +159,7 @@ const Navbar = () => {
         <div style={spinnerStyle}>
           <div style={logoContainerStyle}>
             <img
-              src="src/assets/loder.png"
+              src="public/loder.png"
               alt="Logo"
               style={logoStyle}
             />
@@ -171,7 +171,7 @@ const Navbar = () => {
         <div style={containerStyle}>
           {/* Logo Section */}
           <img
-            src="src/assets/logo (2) (1).png"
+            src="public/logo (2) (1).png"
             alt="Logo"
             style={{ height: "40px", marginRight: "1rem" }}
           />

@@ -10,12 +10,12 @@ const Home = () => {
 
   const slides = [
     {
-      image: "src/assets/h1_hero.png",
+      image: "public/h1_hero.png",
       title: "Empowering Farmers",
       description: "Connecting farmers to customers for better opportunities.",
     },
     {
-      image: "src/assets/h1_hero2.png",
+      image: "public/h1_hero2.png",
       title: "Sustainable Agriculture",
       description: "Promoting eco-friendly and sustainable farming practices.",
     },

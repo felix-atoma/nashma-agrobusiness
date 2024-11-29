@@ -26,7 +26,7 @@ const ContactForm = () => {
     <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem" }}>
       <div style={{ position: "relative" }}>
         <img
-          src="https://via.placeholder.com/1200x300" // Replace with your image URL
+          src="src/assets/about3.png" // Replace with your image URL
           alt="Contact"
           style={{
             width: "100%",
