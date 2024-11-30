@@ -6,48 +6,54 @@ const RootLayout = () => {
   return (
     <div
       style={{
-        top: 0,
         margin: 0,
         padding: 0,
-        width: '100vw', // Full viewport width
-        height: '100vh', // Full viewport height
         display: 'flex',
         flexDirection: 'column',
-        justifyContent: 'space-between', // Space out Navbar, content, and Footer
-        overflowX: 'hidden', // Prevent horizontal scrolling
+        minHeight: '100vh', // Ensures full viewport height coverage
+        width: '100vw', // Ensures full viewport width
+        overflowX: 'hidden', // Prevents horizontal scrolling
+        boxSizing: 'border-box', // Includes padding and border in dimensions
       }}
     >
       {/* Navbar */}
       <div
         style={{
-          position: 'sticky', // Sticks to the top when scrolling
-          top: 0,
-          zIndex: 50, // Ensures Navbar is above other elements
-          width: '100%',
-          backgroundColor: 'white', // Navbar background color
-          boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)', // Optional shadow for better visibility
+          zIndex: 10,
+          width: '100%', // Full horizontal coverage
+          flexShrink: 0, // Prevents shrinking
         }}
       >
         <Navbar />
       </div>
 
-      {/* Main content area filling remaining space */}
+      {/* Main content area */}
       <main
         style={{
-          flex: 1, // Fills the remaining vertical space
-          margin: 0,
-          padding: 0,
-          width: '100vw', // Full viewport width
+          flex: 1, // Fills remaining vertical space
+          display: 'flex',
+          flexDirection: 'column',
+          width: '100%', // Matches full width of the viewport
+          maxWidth: '100vw', // Prevents overflow
+          overflowX: 'hidden', // Avoid horizontal scrolling
+          padding: 0, // Ensure no extra spacing
+          margin: 0, // Ensure alignment with the Navbar
         }}
       >
-        <Outlet /> {/* Child routes will render here */}
+        <Outlet /> {/* Renders child routes */}
       </main>
 
-      {/* Contact and Footer */}
-      <div style={{ width: '100%', margin: 0, padding: 0 }}>
-        
+      {/* Footer */}
+      <footer
+        style={{
+          width: '100%', // Full horizontal coverage
+          flexShrink: 0, // Prevents shrinking
+          padding: 0, // Aligns with the layout
+          margin: 0, // Matches Navbar's alignment
+        }}
+      >
         <Footer />
-      </div>
+      </footer>
     </div>
   );
 };
