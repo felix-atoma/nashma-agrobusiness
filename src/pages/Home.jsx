@@ -1,37 +1,38 @@
 import React, { useState, useEffect } from "react";
 import ExperienceSection from "../components/ExperienceSection";
-import ServicesSection from "../components/servicesSection";
+import ServicesSection from "../components/ServicesSection";
 import AgribusinessCounter from "../components/AgribusinessCounter";
 import WhyChooseUs from "../components/WhyChooseUs";
 import ContactPage from "../components/ContactPage";
 
+// Import images directly or use public folder correctly
+const slides = [
+  {
+    image: "/h1_hero.png", // Correct public folder usage
+    title: "Empowering Farmers",
+    description: "Connecting farmers to customers for better opportunities.",
+  },
+  {
+    image: "/h1_hero2.png", // Correct public folder usage
+    title: "Sustainable Agriculture",
+    description: "Promoting eco-friendly and sustainable farming practices.",
+  },
+];
+
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const slides = [
-    {
-      image: "public/h1_hero.png",
-      title: "Empowering Farmers",
-      description: "Connecting farmers to customers for better opportunities.",
-    },
-    {
-      image: "public/h1_hero2.png",
-      title: "Sustainable Agriculture",
-      description: "Promoting eco-friendly and sustainable farming practices.",
-    },
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000); // Change slide every 5 seconds
 
-    return () => clearInterval(interval);
-  }, [slides.length]);
+    return () => clearInterval(interval); // Clean up interval
+  }, []);
 
   return (
     <div>
-      {/* Carousel */}
+      {/* Hero Carousel */}
       <div
         style={{
           position: "relative",
@@ -49,10 +50,9 @@ const Home = () => {
               left: index === currentSlide ? "0" : "100%",
               width: "100%",
               height: "100%",
-              backgroundColor: "#000", // To avoid white spaces during transition
               display: "flex",
-              justifyContent: "center", // Horizontally center the image
-              alignItems: "center", // Vertically center the image
+              justifyContent: "center",
+              alignItems: "center",
               transition: "left 0.8s ease-in-out",
               zIndex: index === currentSlide ? 1 : 0,
             }}
@@ -61,9 +61,9 @@ const Home = () => {
               src={slide.image}
               alt={slide.title}
               style={{
-                width: "100%", // Ensures the image stretches to fill the container
-                height: "100%", // Ensures the image stretches to fill the container
-                objectFit: "cover", // Ensures the image covers the entire container while maintaining its aspect ratio
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
               }}
             />
             <div
@@ -123,7 +123,7 @@ const Home = () => {
         </div>
       </div>
 
-      {/* Experience Section */}
+      {/* Main Content */}
       <div
         style={{
           padding: "40px 20px",
