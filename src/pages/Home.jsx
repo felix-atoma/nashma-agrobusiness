@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ExperienceSection from "../components/ExperienceSection";
-import ServicesSection from "../components/servicesSection";
+import ServicesSection from "../components/ServicesSection";
 import AgribusinessCounter from "../components/AgribusinessCounter";
 import WhyChooseUs from "../components/WhyChooseUs";
 import ContactPage from "../components/ContactPage";
@@ -31,13 +31,19 @@ const Home = () => {
   }, []);
 
   return (
-    <div>
+    <div
+      style={{
+        width: "100vw", // Full viewport width
+        overflowX: "hidden", // Prevent horizontal scrolling
+        position: "relative",
+      }}
+    >
       {/* Hero Carousel */}
       <div
         style={{
           position: "relative",
           height: "100vh", // Full viewport height
-          width: "100%",
+          width: "100vw", // Full viewport width
           overflow: "hidden",
         }}
       >
@@ -47,7 +53,7 @@ const Home = () => {
             style={{
               position: "absolute",
               top: 0,
-              left: index === currentSlide ? "0" : "100%",
+              left: index === currentSlide ? "0" : "100vw",
               width: "100%",
               height: "100%",
               display: "flex",

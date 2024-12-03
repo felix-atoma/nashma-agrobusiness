@@ -34,7 +34,7 @@ const About = () => {
         <style>{mediaQueryStyle}</style>
         <div style={containerStyle} className="about-container">
           <h2 style={headingStyle} className="heading">
-            About Us
+            
           </h2>
           <p style={paragraphStyle} className="paragraph">
             We are a leading agricbusiness focused on sustainable farming practices and providing high-quality, locally sourced produce to our customers.

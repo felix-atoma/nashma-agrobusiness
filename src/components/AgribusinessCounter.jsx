@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
 const AgribusinessCounter = () => {
   const stats = [
@@ -25,9 +25,32 @@ const AgribusinessCounter = () => {
 
 const Counter = ({ target }) => {
   const [count, setCount] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const counterRef = useRef(null);
 
   useEffect(() => {
-    let start = 0;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          startCounting();
+        }
+      },
+      { threshold: 0.5 } // Trigger when 50% of the counter is visible
+    );
+
+    if (counterRef.current) {
+      observer.observe(counterRef.current);
+    }
+
+    return () => {
+      if (counterRef.current) {
+        observer.unobserve(counterRef.current);
+      }
+    };
+  }, [hasAnimated]);
+
+  const startCounting = () => {
     const duration = 2000; // Animation duration in ms
     const startTime = performance.now();
 
@@ -44,11 +67,13 @@ const Counter = ({ target }) => {
     };
 
     requestAnimationFrame(animate);
+  };
 
-    return () => cancelAnimationFrame(animate);
-  }, [target]);
-
-  return <h2 style={counterStyle}>{count}+</h2>;
+  return (
+    <h2 ref={counterRef} style={counterStyle}>
+      {count}+
+    </h2>
+  );
 };
 
 // Styles (unchanged)

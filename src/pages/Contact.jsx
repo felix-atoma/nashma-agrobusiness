@@ -27,7 +27,7 @@ const Contact = () => {
       <style>{mediaQueryStyle}</style>
       <div style={containerStyle} className="contact-container">
         <h2 style={headingStyle} className="heading">
-          Contact Us
+          
         </h2>
         <ContactForm />
       </div>

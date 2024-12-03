@@ -19,36 +19,22 @@ const ContactForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Your message has been sent!");
-    // Add submission logic if needed
   };
 
   return (
     <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem" }}>
-      <div style={{ position: "relative" }}>
+      <div style={{ position: "relative", marginTop: "0" }}>
+        {/* Image Section */}
         <img
-          src="src/assets/about3.png" // Replace with your image URL
+          src="public/about3.png" // Replace with your image URL
           alt="Contact"
           style={{
             width: "100%",
-            borderRadius: "8px",
-            marginBottom: "2rem",
-            position: "relative",
+            height: "300px", // Adjust the height as needed
+            objectFit: "cover", // Ensures proper image scaling
+            borderRadius: "",
           }}
         />
-        {/* "Contact" Text on the Image */}
-        <h1
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translate(-50%, -50%)",
-            fontSize: "4rem",
-            color: "white",
-            fontWeight: "bold",
-          }}
-        >
-          Contact
-        </h1>
       </div>
 
       <h2
@@ -56,7 +42,7 @@ const ContactForm = () => {
           fontSize: "2rem",
           marginBottom: "2rem",
           color: "#333",
-          textAlign: "left", // Align to the left
+          textAlign: "left",
         }}
       >
         Get in Touch
@@ -67,8 +53,8 @@ const ContactForm = () => {
           display: "flex",
           gap: "4rem",
           alignItems: "flex-start",
-          flexDirection: "row", // Default: row for larger screens
-          flexWrap: "wrap", // Allow wrapping for smaller screens
+          flexDirection: "row",
+          flexWrap: "wrap",
         }}
       >
         {/* Left: Contact Form */}
@@ -79,7 +65,7 @@ const ContactForm = () => {
             display: "flex",
             flexDirection: "column",
             gap: "1.5rem",
-            width: "100%", // Full width for form
+            width: "100%",
           }}
         >
           <textarea
@@ -100,7 +86,7 @@ const ContactForm = () => {
               display: "flex",
               gap: "1.5rem",
               width: "100%",
-              flexWrap: "wrap", // Allow inputs to wrap on smaller screens
+              flexWrap: "wrap",
             }}
           >
             <input
@@ -110,7 +96,7 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               style={{
-                flex: "1", // Makes each input flexible
+                flex: "1",
                 padding: "1rem",
                 fontSize: "1rem",
               }}
@@ -123,7 +109,7 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               style={{
-                flex: "1", // Makes each input flexible
+                flex: "1",
                 padding: "1rem",
                 fontSize: "1rem",
               }}
@@ -146,7 +132,7 @@ const ContactForm = () => {
             type="submit"
             style={{
               padding: "1rem",
-              border: "2px solid #38A169", // Light green border
+              border: "2px solid #38A169",
               backgroundColor: "white",
               color: "#38A169",
               cursor: "pointer",
@@ -179,15 +165,13 @@ const ContactForm = () => {
             display: "flex",
             flexDirection: "column",
             gap: "3rem",
-            marginLeft: "5rem", // Margin for larger screens
+            marginLeft: "5rem",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <FaHome size={28} color="#38A169" />
             <div>
-              <p style={{ fontWeight: "bold", margin: "0" }}>
-                Accra, Ghana
-              </p>
+              <p style={{ fontWeight: "bold", margin: "0" }}>Accra, Ghana</p>
               <p style={{ margin: "0" }}>123 Independence Avenue</p>
             </div>
           </div>

@@ -6,38 +6,35 @@ const RootLayout = () => {
   return (
     <div
       style={{
-        margin: 0,
-        padding: 0,
         display: 'flex',
         flexDirection: 'column',
-        minHeight: '100vh', // Ensures full viewport height coverage
-        width: '100vw', // Ensures full viewport width
-        overflowX: 'hidden', // Prevents horizontal scrolling
-        boxSizing: 'border-box', // Includes padding and border in dimensions
+        minHeight: '100vh', // Full viewport height
+        width: '100vw', // Full viewport width
+        overflowX: 'hidden', // Prevent horizontal scrolling
+        margin: 0,
+        padding: 0,
+        boxSizing: 'border-box',
       }}
     >
       {/* Navbar */}
-      <div
+      <header
         style={{
           zIndex: 10,
-          width: '100%', // Full horizontal coverage
-          flexShrink: 0, // Prevents shrinking
+          width: '100%', // Full width
+          flexShrink: 0, // Prevent shrinking
         }}
       >
         <Navbar />
-      </div>
+      </header>
 
-      {/* Main content area */}
+      {/* Main Content Area */}
       <main
         style={{
-          flex: 1, // Fills remaining vertical space
+          flex: 1, // Fill remaining space between header and footer
           display: 'flex',
           flexDirection: 'column',
-          width: '100%', // Matches full width of the viewport
-          maxWidth: '100vw', // Prevents overflow
-          overflowX: 'hidden', // Avoid horizontal scrolling
-          padding: 0, // Ensure no extra spacing
-          margin: 0, // Ensure alignment with the Navbar
+          width: '100%', // Match viewport width
+          overflowX: 'hidden', // Prevent horizontal scrolling
         }}
       >
         <Outlet /> {/* Renders child routes */}
@@ -46,10 +43,9 @@ const RootLayout = () => {
       {/* Footer */}
       <footer
         style={{
-          width: '100%', // Full horizontal coverage
-          flexShrink: 0, // Prevents shrinking
-          padding: 0, // Aligns with the layout
-          margin: 0, // Matches Navbar's alignment
+          width: '100%', // Full width
+          flexShrink: 0, // Prevent shrinking
+          marginTop: 'auto', // Pushes footer to the bottom
         }}
       >
         <Footer />
