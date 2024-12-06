@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import ExperienceSection from "../components/ExperienceSection";
-import ServicesSection from "../components/servicesSection";
+import ServicesSection from "../components/servicesSection"
 import AgribusinessCounter from "../components/AgribusinessCounter";
 import WhyChooseUs from "../components/WhyChooseUs";
 import ContactPage from "../components/ContactPage";
+import { FaArrowUp } from "react-icons/fa"; // Import arrow icon
 
 // Import images directly or use public folder correctly
 const slides = [
@@ -29,6 +30,13 @@ const Home = () => {
 
     return () => clearInterval(interval); // Clean up interval
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
 
   return (
     <div
@@ -143,6 +151,30 @@ const Home = () => {
         <WhyChooseUs />
         <ContactPage />
       </div>
+
+      {/* Scroll to Top Button */}
+      <button
+        onClick={scrollToTop}
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          right: "20px",
+          backgroundColor: "#71B34A", // Green background
+          color: "#fff", // White color for the arrow
+          border: "none",
+          borderRadius: "50%",
+          padding: "15px",
+          cursor: "pointer",
+          boxShadow: "0 4px 6px rgba(0, 0, 0, 0.2)",
+          fontSize: "24px",
+          zIndex: 9999,
+          transition: "background-color 0.3s",
+        }}
+        onMouseOver={(e) => (e.target.style.backgroundColor = "#4A8A34")}
+        onMouseOut={(e) => (e.target.style.backgroundColor = "#71B34A")}
+      >
+        <FaArrowUp />
+      </button>
     </div>
   );
 };
