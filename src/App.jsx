@@ -9,6 +9,7 @@ import About from './pages/About';
 import Services from './pages/Services'; // Adjust path
 import Contact from './pages/Contact';   // Adjust path
 import Mission from "./pages/Mission";
+import ServiceDetail from "./pages/ServiceDetail";
 
 function App() {
   // Define the routes with RootLayout wrapping all pages
@@ -37,6 +38,11 @@ function App() {
           path: "/contact",
           element: <Contact />,
         },
+        {
+          path: "/services/:serviceId",
+          element: <ServiceDetail />,
+        }
+        
       ],
     },
   ]);

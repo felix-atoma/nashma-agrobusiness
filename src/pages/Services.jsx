@@ -1,10 +1,162 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
+import { FaPhoneAlt } from "react-icons/fa";
 
 const Services = () => {
+  const navigate = useNavigate();
+
+  const services = [
+    {
+      id: "potash-production",
+      image: "/20241126_165204.jpg",
+      title: "Potash Production",
+      description:
+        "We specialize in producing high-quality potash for agricultural and industrial use.",
+    },
+    {
+      id: "global-bulk-supply",
+      image: "/20241126_165239.jpg",
+      title: "Global Bulk Supply",
+      description:
+        "We ensure the efficient global supply of bulk products to meet diverse needs.",
+    },
+    {
+      id: "skills-training",
+      image: "/20241126_165300.jpg",
+      title: "Skills Training in Potash and African Black Soap",
+      description:
+        "Empowering communities with skills to produce potash and African black soap, fostering sustainable livelihoods.",
+    },
+    {
+      id: "sustainable-farming-workshops",
+      image: "/sustainable_farming_workshop.jpg",
+      title: "Sustainable Farming Workshops",
+      description:
+        "Teaching modern and sustainable farming techniques to enhance productivity while protecting the environment.",
+    },
+    {
+      id: "eco-friendly-packaging",
+      image: "/eco_friendly_packaging.jpg",
+      title: "Eco-Friendly Packaging Solutions",
+      description:
+        "Providing sustainable and eco-friendly packaging options for agricultural and industrial products.",
+    },
+  ];
+
+  const handleButtonClick = (id) => {
+    navigate(`/services/${id}`); // Navigate to the dynamic route for the service
+  };
+
   return (
-    <div>
-      <h1>Services Page</h1>
-      <p>Explore the services we offer.</p>
+    <div
+      style={{
+        padding: "40px 20px",
+        backgroundColor: "#f7fafc",
+      }}
+    >
+      <h2
+        style={{
+          fontSize: "2.5rem",
+          color: "#2d3748",
+          textAlign: "center",
+          marginBottom: "40px",
+        }}
+      >
+        Services We Provide
+      </h2>
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "20px",
+        }}
+      >
+        {services.map((service) => (
+          <div
+            key={service.id}
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              backgroundColor: "#d4edda",
+              borderRadius: "8px",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+              overflow: "hidden",
+              alignItems: "center",
+              marginBottom: "20px",
+              flexWrap: "wrap",
+            }}
+          >
+            {/* Image */}
+            <div style={{ flex: "1 1 100px", maxWidth: "100%" }}>
+              <img
+                src={service.image}
+                alt={service.title}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                }}
+              />
+            </div>
+
+            {/* Content */}
+            <div
+              style={{
+                flex: "1 1 300px",
+                padding: "16px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                minWidth: "250px",
+              }}
+            >
+              <h3
+                style={{
+                  fontSize: "1.5rem",
+                  color: "#2d3748",
+                  fontWeight: "bold",
+                  marginBottom: "10px",
+                }}
+              >
+                {service.title}
+              </h3>
+              <p
+                style={{
+                  color: "#4a5568",
+                  fontSize: "1rem",
+                  marginBottom: "16px",
+                }}
+              >
+                {service.description}
+              </p>
+              <button
+                onClick={() => handleButtonClick(service.id)}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  padding: "10px 20px",
+                  backgroundColor: "#71B34A",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: "4px",
+                  cursor: "pointer",
+                  transition: "background-color 0.3s ease",
+                }}
+                onMouseOver={(e) =>
+                  (e.target.style.backgroundColor = "#4A8A34")
+                }
+                onMouseOut={(e) =>
+                  (e.target.style.backgroundColor = "#71B34A")
+                }
+              >
+                <FaPhoneAlt />
+                Get This Service
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
