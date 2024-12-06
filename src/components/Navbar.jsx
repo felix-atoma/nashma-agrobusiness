@@ -159,7 +159,7 @@ const Navbar = () => {
         <div style={spinnerStyle}>
           <div style={logoContainerStyle}>
             <img
-              src="/loder.png"
+              src="/nashma[2].png"
               alt="Logo"
               style={logoStyle}
             />
@@ -171,7 +171,7 @@ const Navbar = () => {
         <div style={containerStyle}>
           {/* Logo Section */}
           <img
-            src="/logo (2) (1).png"
+            src="/nashma[2].png"
             alt="Logo"
             style={{ height: "40px", marginRight: "1rem" }}
           />
@@ -214,7 +214,7 @@ const Navbar = () => {
           {/* Contact Number */}
           <div className="phone-container" style={phoneContainerStyle}>
             <FaPhoneAlt />
-            <span>+233 123 456 789</span>
+            <span>(+233) 0545086577/0243241649</span>
           </div>
         </div>
       </nav>

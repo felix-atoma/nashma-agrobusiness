@@ -7,17 +7,18 @@ const ServicesSection = () => {
 
   const services = [
     {
-      image: "src/assets/services1.png",
-      title: "Crop Cultivation",
+      image: "/20241126_165204.jpg", // Replace with actual image path for potash production
+      title: "Potash Production",
       description:
-        "We provide expert advice and tools for sustainable crop cultivation.",
-      servicePath: "/services/crop-cultivation",
+        "We specialize in producing high-quality potash for agricultural and industrial use.",
+      servicePath: "/services/potash-production",
     },
     {
-      image: "src/assets/services2.png",
-      title: "Livestock Management",
-      description: "Get the best resources for effective livestock management.",
-      servicePath: "/services/livestock-management",
+      image: "/20241126_165239.jpg", // Replace with actual image path for bulk supply
+      title: "Global Bulk Supply",
+      description:
+        "We ensure the efficient global supply of bulk products to meet diverse needs.",
+      servicePath: "/services/global-bulk-supply",
     },
   ];
 

@@ -107,7 +107,7 @@ const ContactPage = () => {
         {/* Left Section - Image */}
         <div style={rightSectionStyle}>
           <img
-            src="src/assets/about3.png" // Replace with your actual image path
+            src="/1. Cocoa Potash Label 5Kg[1].jpg" // Replace with your actual image path
             alt="Agriculture"
             className="contact-image"
             style={imgStyle}
@@ -122,20 +122,19 @@ const ContactPage = () => {
           </p>
           <div style={{ marginTop: "16px" }}>
             <p>
-              <span style={{ fontWeight: "600" }}>Phone:</span> (10) 892-293 2678
+              <span style={{ fontWeight: "600" }}>Phone:</span> (+233) 0545086577/0243241649
             </p>
             <p>
               <span style={{ fontWeight: "600" }}>Email:</span>{" "}
               <a
-                href="mailto:contact@agrica.com"
+                href="nashmafarms@gmail.com"
                 style={{ color: "#1E40AF", textDecoration: "underline" }}
               >
-                contact@agrica.com
+                nashmafarms@gmail.com
               </a>
             </p>
             <p>
-              <span style={{ fontWeight: "600" }}>Address:</span> 768/A, Green
-              Lane 790, Max Town, New York
+              <span style={{ fontWeight: "600" }}>Address:</span> Apemso-KNUST,Kumasi
             </p>
           </div>
           <div style={{ marginTop: "24px" }}>

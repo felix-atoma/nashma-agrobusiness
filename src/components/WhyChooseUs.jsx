@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiPhoneCall } from "react-icons/fi";
+import { FaHandsHelping, FaLightbulb, FaUsers, FaBalanceScale, FaSeedling } from "react-icons/fa"; // Import new icons
 import { useNavigate } from "react-router-dom";
 
 const WhyChooseUs = () => {
@@ -31,19 +32,42 @@ const WhyChooseUs = () => {
       <div style={containerStyle}>
         <div style={textContentStyle}>
           <h1 style={headingStyle}>Why you should choose us</h1>
-          <p style={paragraphStyle}>
-            Technological information and others, in addition to information about companies in the sector,
-            list of any and all companies related to agribusiness.
-          </p>
-          <p style={paragraphStyle}>
-            Technological information and others, in addition to information about companies.
-          </p>
-          <p style={paragraphStyle}>
-            Technological information and others, in addition to information about companies.
-          </p>
-          <p style={paragraphStyle}>
-            Technological information and others, in addition to information about companies.
-          </p>
+
+          <div style={pointContainerStyle}>
+            <FaHandsHelping style={iconStyle} />
+            <p style={paragraphStyle}>
+              Hardwork: We believe in the power of persistence and dedication to achieve success.
+            </p>
+          </div>
+
+          <div style={pointContainerStyle}>
+            <FaLightbulb style={iconStyle} />
+            <p style={paragraphStyle}>
+              Entrepreneurship: We foster innovative thinking and the spirit of entrepreneurship.
+            </p>
+          </div>
+
+          <div style={pointContainerStyle}>
+            <FaUsers style={iconStyle} />
+            <p style={paragraphStyle}>
+              Mentorship: We provide guidance and support to ensure your growth and success.
+            </p>
+          </div>
+
+          <div style={pointContainerStyle}>
+            <FaBalanceScale style={iconStyle} />
+            <p style={paragraphStyle}>
+              Fair Trade: We prioritize fair and transparent business practices.
+            </p>
+          </div>
+
+          <div style={pointContainerStyle}>
+            <FaSeedling style={iconStyle} />
+            <p style={paragraphStyle}>
+              Empowerment & Sense of Community: We empower farmers and communities for long-term growth.
+            </p>
+          </div>
+
           <button
             style={buttonStyle}
             onMouseEnter={(e) => (e.target.style.backgroundColor = "#38A169")}
@@ -51,12 +75,12 @@ const WhyChooseUs = () => {
             onClick={handleButtonClick}
           >
             <FiPhoneCall style={{ marginRight: "8px" }} />
-            (10) 892-293 2678
+            (+233) 0545086577/0243241649
           </button>
         </div>
         <div style={imageContentStyle}>
           <img
-            src="src/assets/about2 (1).png"
+            src="/20241112_165130.jpg"
             alt="Agribusiness Illustration"
             style={imageStyle}
           />
@@ -66,16 +90,17 @@ const WhyChooseUs = () => {
   );
 };
 
+// Styles
 const containerStyle = {
   display: "flex",
-  flexDirection: "row", // Row layout for larger screens
+  flexDirection: "row",
   justifyContent: "space-between",
   alignItems: "center",
   padding: "2rem",
   backgroundColor: "#FFFFFF",
   height: "100vh",
   boxSizing: "border-box",
-  gap: "1.5rem", // Space between text and image sections
+  gap: "1.5rem",
 };
 
 const textContentStyle = {
@@ -126,7 +151,18 @@ const imageStyle = {
   borderRadius: "8px",
 };
 
-// Spinner Styles
+const pointContainerStyle = {
+  display: "flex",
+  alignItems: "flex-start",
+  gap: "1rem",
+  marginBottom: "1rem",
+};
+
+const iconStyle = {
+  fontSize: "1.5rem",
+  color: "#38A169", // Green color for icons
+};
+
 const spinnerStyle = {
   display: "flex",
   justifyContent: "center",

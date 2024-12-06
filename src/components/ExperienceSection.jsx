@@ -94,7 +94,7 @@ const ExperienceSection = () => {
           }}
         >
           <img
-            src="src/assets/about1.png" // Replace with the actual image path
+            src="/20241112_164309.jpg" // Replace with the actual image path
             alt="Experience"
             style={{
               width: "100%",
