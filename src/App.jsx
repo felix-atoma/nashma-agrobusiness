@@ -6,9 +6,9 @@ import './App.css';
 import RootLayout from './layouts/RootLayout';
 import Home from './pages/Home';
 import About from './pages/About';
-import Blog from './pages/Blog';         // Adjust path
 import Services from './pages/Services'; // Adjust path
 import Contact from './pages/Contact';   // Adjust path
+import Mission from "./pages/Mission";
 
 function App() {
   // Define the routes with RootLayout wrapping all pages
@@ -26,8 +26,8 @@ function App() {
           element: <About />,
         },
         {
-          path: "/blog",
-          element: <Blog />, // Blog route
+          path: "/mission",
+          element: <Mission />, // Blog route
         },
         {
           path: "/services",

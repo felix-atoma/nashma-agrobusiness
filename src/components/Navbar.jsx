@@ -188,7 +188,7 @@ const Navbar = () => {
             className={`nav-links ${menuOpen ? "open" : ""}`}
             style={ulStyle}
           >
-            {["Home", "About", "Services", "Blog", "Contact"].map((text, index) => (
+            {["Home", "About", "Services", "Mission", "Contact"].map((text, index) => (
               <li key={index} style={{ position: "relative" }}>
                 <Link
                   to={text === "Home" ? "/" : `/${text.toLowerCase()}`}
