@@ -10,15 +10,16 @@ import { FaArrowUp } from "react-icons/fa"; // Import arrow icon
 const slides = [
   {
     image: "/h1_hero.png", // Correct public folder usage
-    title: "Empowering Farmers",
-    description: "Connecting farmers to customers for better opportunities.",
+    title: "Nasma Agribusiness",
+    description: "Empowering Sustainable Growth in Rural Cocoa Communities.",
   },
   {
-    image: "/h1_hero2.png", // Correct public folder usage
-    title: "Sustainable Agriculture",
+    image: "/20241112_164309.jpg", // Correct public folder usage
+    title: "Enabling Young People and Women to Thrive",
     description: "Promoting eco-friendly and sustainable farming practices.",
   },
 ];
+
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
