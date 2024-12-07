@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ExperienceSection from "../components/ExperienceSection";
-import ServicesSection from "../components/servicesSection"
+import ServicesSection from "../components/servicesSection";
 import AgribusinessCounter from "../components/AgribusinessCounter";
 import WhyChooseUs from "../components/WhyChooseUs";
 import ContactPage from "../components/ContactPage";
@@ -19,7 +19,6 @@ const slides = [
     description: "Promoting eco-friendly and sustainable farming practices.",
   },
 ];
-
 
 const Home = () => {
   const [currentSlide, setCurrentSlide] = useState(0);

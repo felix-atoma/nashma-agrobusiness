@@ -1,10 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaPhoneAlt, FaBars } from "react-icons/fa";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 768);
   const [loading, setLoading] = useState(false);
+
+  // Update screen size state on window resize
+  useEffect(() => {
+    const handleResize = () => setIsSmallScreen(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const handleNavigation = (path) => {
     setLoading(true);
@@ -22,9 +30,9 @@ const Navbar = () => {
     top: 0,
     left: 0,
     width: "100%",
-    zIndex: 1000, // Ensure Navbar is above content
+    zIndex: 1000,
   };
-  
+
   const containerStyle = {
     maxWidth: "1200px",
     margin: "0 auto",
@@ -36,12 +44,14 @@ const Navbar = () => {
   };
 
   const ulStyle = {
-    display: "flex",
+    display: isSmallScreen ? (menuOpen ? "flex" : "none") : "flex",
+    flexDirection: isSmallScreen ? "column" : "row",
     listStyleType: "none",
-    padding: "0",
-    margin: "0",
+    padding: 0,
+    margin: 0,
     gap: "1rem",
-    alignItems: "center",
+    alignItems: isSmallScreen ? "center" : "flex-start",
+    width: isSmallScreen ? "100%" : "auto",
   };
 
   const linkStyle = {
@@ -71,99 +81,38 @@ const Navbar = () => {
     padding: "0.3rem 0.8rem",
     borderRadius: "4px",
     color: "white",
-    flexShrink: "0",
   };
 
   const hamburgerStyle = {
-    display: "none", // Default hidden
+    display: isSmallScreen ? "block" : "none",
     fontSize: "1.5rem",
     cursor: "pointer",
     color: "#38a169",
   };
 
-  const spinnerStyle = {
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100vh",
-    backgroundColor: "white",
-    position: "fixed",
-    top: "0",
-    left: "0",
-    width: "100%",
-    zIndex: "100",
-  };
-
-  const logoContainerStyle = {
-    position: "relative",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    height: "100px",
-    width: "100px",
-  };
-
-  const ringStyle = {
-    position: "absolute",
-    top: "0",
-    left: "0",
-    height: "100%",
-    width: "100%",
-    border: "5px solid #38a169",
-    borderRadius: "50%",
-    borderTopColor: "transparent",
-    animation: "spin 1s linear infinite",
-  };
-
-  const logoStyle = {
-    height: "50px",
-    width: "50px",
-  };
-
-  const mediaQuery = `
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-      .nav-links {
-        display: none; /* Hide navigation links by default on small screens */
-        flex-direction: column;
-        width: 100%;
-        align-items: center;
-      }
-      .nav-links.open {
-        display: flex; /* Show navigation links when menu is open */
-      }
-      .phone-container {
-        order: -1;
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 1rem;
-      }
-    }
-
-    @media (max-width: 375px) {
-      .phone-container {
-        padding: 0.2rem 0.5rem;
-        font-size: 0.9rem;
-      }
-      .nav-links li {
-        font-size: 0.9rem;
-      }
-    }
-  `;
-
   return (
     <>
       {loading && (
-        <div style={spinnerStyle}>
-          <div style={logoContainerStyle}>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100vh",
+            backgroundColor: "white",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            zIndex: 100,
+          }}
+        >
+          <div>
             <img
               src="/nashma[2].png"
               alt="Logo"
-              style={logoStyle}
+              style={{ height: "50px", width: "50px" }}
             />
-            <div style={ringStyle}></div>
           </div>
         </div>
       )}
@@ -184,17 +133,14 @@ const Navbar = () => {
           />
 
           {/* Navigation Links */}
-          <ul
-            className={`nav-links ${menuOpen ? "open" : ""}`}
-            style={ulStyle}
-          >
+          <ul style={ulStyle}>
             {["Home", "About", "Services", "Mission", "Contact"].map((text, index) => (
               <li key={index} style={{ position: "relative" }}>
                 <Link
                   to={text === "Home" ? "/" : `/${text.toLowerCase()}`}
                   style={linkStyle}
                   onClick={() => {
-                    setMenuOpen(false);
+                    if (isSmallScreen) setMenuOpen(false);
                     handleNavigation(text === "Home" ? "/" : `/${text.toLowerCase()}`);
                   }}
                   onMouseEnter={(e) =>
@@ -218,18 +164,6 @@ const Navbar = () => {
           </div>
         </div>
       </nav>
-
-      {/* CSS for Spinner and Media Queries */}
-      <style>
-        {`
-          @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-
-          ${mediaQuery}
-        `}
-      </style>
     </>
   );
 };
