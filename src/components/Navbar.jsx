@@ -29,7 +29,7 @@ const Navbar = () => {
     position: "fixed",
     top: 0,
     left: 0,
-    width: "100%",
+    width: "100vw",
     zIndex: 1000,
   };
 
@@ -109,9 +109,9 @@ const Navbar = () => {
         >
           <div>
             <img
-              src="/nashma[2].png"
+              src="/nashma-removebg-preview.png"
               alt="Logo"
-              style={{ height: "50px", width: "50px" }}
+              style={{ height: "80px", width: "80px" }}
             />
           </div>
         </div>
@@ -120,7 +120,7 @@ const Navbar = () => {
         <div style={containerStyle}>
           {/* Logo Section */}
           <img
-            src="/nashma[2].png"
+            src="/nashma-removebg-preview.png"
             alt="Logo"
             style={{ height: "40px", marginRight: "1rem" }}
           />

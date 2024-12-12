@@ -6,14 +6,13 @@ const RootLayout = () => {
   return (
     <div
       style={{
-        display: 'flex',
-        flexDirection: 'column',
-        minHeight: '100vh', // Full viewport height
-        width: '100vw', // Full viewport width
-        overflowX: 'hidden', // Prevent horizontal scrolling
-        margin: 0,
-        padding: 0,
-        boxSizing: 'border-box',
+        position: 'sticky',
+          top: 0,
+          left: 0,
+          zIndex: 50,
+          width: '100vw', // Ensure full width
+          backgroundColor: 'white', // Change as needed
+          boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
       }}
     >
       {/* Navbar */}
@@ -21,31 +20,29 @@ const RootLayout = () => {
         style={{
           zIndex: 10,
           width: '100%', // Full width
-          flexShrink: 0, // Prevent shrinking
+          
         }}
       >
         <Navbar />
       </header>
 
-      {/* Main Content Area */}
+      {/* Main Content */}
       <main
         style={{
-          flex: 1, // Fill remaining space between header and footer
-          display: 'flex',
-          flexDirection: 'column',
-          width: '100%', // Match viewport width
-          overflowX: 'hidden', // Prevent horizontal scrolling
+          flex: 1,
+          margin: 0,
+          padding: 0,
+          width: '100vw', 
         }}
       >
-        <Outlet /> {/* Renders child routes */}
+        { <Outlet /> }
       </main>
 
       {/* Footer */}
       <footer
         style={{
-          width: '100%', // Full width
-          flexShrink: 0, // Prevent shrinking
-          marginTop: 'auto', // Pushes footer to the bottom
+          width: '100%', margin: 0, padding: 0 
+
         }}
       >
         <Footer />

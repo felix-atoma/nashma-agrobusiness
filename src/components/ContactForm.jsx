@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FaHome, FaPhone, FaEnvelope } from "react-icons/fa";
+import emailjs from "emailjs-com";
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,9 @@ const ContactForm = () => {
     subject: "",
   });
 
+  const [isSending, setIsSending] = useState(false);
+  const [success, setSuccess] = useState(false);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -16,27 +20,41 @@ const ContactForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Your message has been sent!");
+    setIsSending(true);
+    try {
+      await emailjs.send(
+        "YOUR_SERVICE_ID", // Replace with your EmailJS Service ID
+        "YOUR_TEMPLATE_ID", // Replace with your EmailJS Template ID
+        formData,
+        "YOUR_PUBLIC_KEY" // Replace with your EmailJS Public Key
+      );
+      setSuccess(true);
+      alert("Your message has been sent!");
+      setFormData({ message: "", name: "", email: "", subject: "" });
+    } catch (error) {
+      alert("An error occurred. Please try again later.");
+      console.error("EmailJS error:", error);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
     <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem" }}>
       <div style={{ position: "relative", marginTop: "0" }}>
-        {/* Image Section */}
-        <img
-          src="public/about3.png" // Replace with your image URL
-          alt="Contact"
-          style={{
-            width: "100%",
-            height: "300px", // Adjust the height as needed
-            objectFit: "cover", // Ensures proper image scaling
-            borderRadius: "",
-          }}
-        />
-      </div>
+      <img
+  src="/20241112_164309.jpg"
+  alt="Contact"
+  style={{
+    width: "100vw", // Full viewport width
+    height: "100vh", // 50% of the viewport height
+    objectFit: "cover",
+  }}
+/>
 
+      </div>
       <h2
         style={{
           fontSize: "2rem",
@@ -47,7 +65,6 @@ const ContactForm = () => {
       >
         Get in Touch
       </h2>
-
       <div
         style={{
           display: "flex",
@@ -57,7 +74,6 @@ const ContactForm = () => {
           flexWrap: "wrap",
         }}
       >
-        {/* Left: Contact Form */}
         <form
           onSubmit={handleSubmit}
           style={{
@@ -75,6 +91,7 @@ const ContactForm = () => {
             onChange={handleChange}
             style={{
               padding: "1rem",
+              border: "1px solid #38A169",
               resize: "none",
               fontSize: "1rem",
             }}
@@ -98,6 +115,7 @@ const ContactForm = () => {
               style={{
                 flex: "1",
                 padding: "1rem",
+                border: "1px solid #38A169",
                 fontSize: "1rem",
               }}
               required
@@ -111,6 +129,7 @@ const ContactForm = () => {
               style={{
                 flex: "1",
                 padding: "1rem",
+                border: "1px solid #38A169",
                 fontSize: "1rem",
               }}
               required
@@ -124,6 +143,7 @@ const ContactForm = () => {
             onChange={handleChange}
             style={{
               padding: "1rem",
+              border: "1px solid #38A169",
               fontSize: "1rem",
             }}
             required
@@ -135,7 +155,7 @@ const ContactForm = () => {
               border: "2px solid #38A169",
               backgroundColor: "white",
               color: "#38A169",
-              cursor: "pointer",
+              cursor: isSending ? "not-allowed" : "pointer",
               fontWeight: "bold",
               fontSize: "1.2rem",
               width: "150px",
@@ -143,20 +163,12 @@ const ContactForm = () => {
               marginTop: "1rem",
               alignSelf: "flex-start",
             }}
-            onMouseEnter={(e) => {
-              e.target.style.backgroundColor = "#38A169";
-              e.target.style.color = "white";
-            }}
-            onMouseLeave={(e) => {
-              e.target.style.backgroundColor = "white";
-              e.target.style.color = "#38A169";
-            }}
+            disabled={isSending}
           >
-            Send
+            {isSending ? "Sending..." : "Send"}
           </button>
         </form>
 
-        {/* Right: Contact Information */}
         <div
           style={{
             marginTop: "0",
@@ -171,21 +183,21 @@ const ContactForm = () => {
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <FaHome size={28} color="#38A169" />
             <div>
-              <p style={{ fontWeight: "bold", margin: "0" }}>Accra, Ghana</p>
-              <p style={{ margin: "0" }}>123 Independence Avenue</p>
+              <p style={{ fontWeight: "bold", margin: "0" }}>Kumasi, Ghana</p>
+              <p style={{ margin: "0" }}>Apemso-KNUST,Kumasi</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <FaPhone size={28} color="#38A169" />
             <div>
-              <p style={{ margin: "0" }}>+233 30 123 4567</p>
+              <p style={{ margin: "0" }}>(+233) 0545086577/0243241649</p>
               <p style={{ margin: "0" }}>Mon to Fri 9am to 6pm</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <FaEnvelope size={28} color="#38A169" />
             <div>
-              <p style={{ margin: "0" }}>info@nashma.agric</p>
+              <p style={{ margin: "0" }}>nashmafarms@gmail.com</p>
               <p style={{ margin: "0" }}>Reach out anytime!</p>
             </div>
           </div>

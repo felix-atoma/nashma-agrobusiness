@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import ExperienceSection from "../components/ExperienceSection";
-import ServicesSection from "../components/servicesSection";
+import ServicesSection from "../components/ServicesSection";
 import AgribusinessCounter from "../components/AgribusinessCounter";
 import WhyChooseUs from "../components/WhyChooseUs";
 import ContactPage from "../components/ContactPage";
 import { FaArrowUp } from "react-icons/fa"; // Import arrow icon
 
-// Import images directly or use public folder correctly
 const slides = [
   {
     image: "/h1_hero.png", // Correct public folder usage
@@ -143,6 +142,7 @@ const Home = () => {
           padding: "40px 20px",
           backgroundColor: "#f7fafc",
           textAlign: "center",
+          overflowX: "hidden", // Prevent any horizontal scrolling
         }}
       >
         <ExperienceSection />

@@ -22,21 +22,21 @@ const Services = () => {
     },
     {
       id: "skills-training",
-      image: "/20241126_165300.jpg",
+      image: "/20241112_160941.jpg",
       title: "Skills Training in Potash and African Black Soap",
       description:
         "Empowering communities with skills to produce potash and African black soap, fostering sustainable livelihoods.",
     },
     {
       id: "sustainable-farming-workshops",
-      image: "/sustainable_farming_workshop.jpg",
+      image: "/20241128_150316.jpg",
       title: "Sustainable Farming Workshops",
       description:
         "Teaching modern and sustainable farming techniques to enhance productivity while protecting the environment.",
     },
     {
       id: "eco-friendly-packaging",
-      image: "/eco_friendly_packaging.jpg",
+      image: "/UUU Roll-up_Mockup_1~2[2].jpg",
       title: "Eco-Friendly Packaging Solutions",
       description:
         "Providing sustainable and eco-friendly packaging options for agricultural and industrial products.",
