@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ExperienceSection from "../components/ExperienceSection";
-import ServicesSection from "../components/ServicesSection";
+
 import AgribusinessCounter from "../components/AgribusinessCounter";
 import WhyChooseUs from "../components/WhyChooseUs";
 import ContactPage from "../components/ContactPage";
