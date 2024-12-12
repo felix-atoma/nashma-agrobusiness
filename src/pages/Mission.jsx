@@ -1,5 +1,5 @@
 import React from "react";
-import { FaSeedling, FaHandsHelping, FaBullhorn, FaHandshake, FaShoppingCart } from "react-icons/fa";
+import { FaSeedling, FaHandsHelping, FaBullhorn, FaHandshake, FaShoppingCart, FaGlobeAfrica } from "react-icons/fa";
 
 const Mission = () => {
   const info = [
@@ -7,33 +7,37 @@ const Mission = () => {
       title: "Our Vision",
       content: "Unlock the potential of young people and women in sustainable agriculture, drive growth and prosperity.",
       icon: <FaSeedling />,
-      imgSrc: "/20241128_150316.jpg", // Replace with your image URL
     },
     {
       title: "Our Mission",
       content:
         "Empower young people and women in agriculture through skills training and direct market access, enabling them to thrive.",
       icon: <FaHandsHelping />,
-      imgSrc: "/20241112_161106.jpg", // Replace with your image URL
     },
+  ];
+
+  const otherGoals = [
     {
       title: "Awareness",
       content:
         "To create brand visibility and educate the audience about NASHMA’s services (training and marketing of potash).",
       icon: <FaBullhorn />,
-      imgSrc: "/first.jpg", // Replace with your image URL
     },
     {
       title: "Engagement",
       content: "To build trust with followers by providing valuable content.",
       icon: <FaHandshake />,
-      imgSrc: "/20241112_164309.jpg", // Replace with your image URL
     },
     {
       title: "Conversion",
       content: "Drive inquiries for training programs and potash sales through all social media platforms.",
       icon: <FaShoppingCart />,
-      imgSrc: "/20241112_163334.jpg", // Replace with your image URL
+    },
+    {
+      title: "Global Impact",
+      content:
+        "Promote sustainable agricultural practices worldwide, ensuring environmental conservation and economic empowerment.",
+      icon: <FaGlobeAfrica />,
     },
   ];
 
@@ -79,14 +83,6 @@ const Mission = () => {
     marginBottom: "1rem",
   };
 
-  const imageStyle = {
-    width: "100px",
-    height: "100px",
-    borderRadius: "50%",
-    objectFit: "cover",
-    margin: "0 auto 1rem",
-  };
-
   const cardTitleStyle = {
     fontSize: "1.5rem",
     fontWeight: "bold",
@@ -118,9 +114,29 @@ const Mission = () => {
             }}
           >
             <div style={iconStyle}>{item.icon}</div>
-            <img src={item.imgSrc} alt={item.title} style={imageStyle} />
             <h2 style={cardTitleStyle}>{item.title}</h2>
             <p style={cardContentStyle}>{item.content}</p>
+          </div>
+        ))}
+      </div>
+      <h2 style={titleStyle}>Other Goals</h2>
+      <div style={gridStyle}>
+        {otherGoals.map((goal, index) => (
+          <div
+            key={index}
+            style={cardStyle}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.transform = cardHoverStyle.transform;
+              e.currentTarget.style.boxShadow = cardHoverStyle.boxShadow;
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.transform = "none";
+              e.currentTarget.style.boxShadow = cardStyle.boxShadow;
+            }}
+          >
+            <div style={iconStyle}>{goal.icon}</div>
+            <h2 style={cardTitleStyle}>{goal.title}</h2>
+            <p style={cardContentStyle}>{goal.content}</p>
           </div>
         ))}
       </div>

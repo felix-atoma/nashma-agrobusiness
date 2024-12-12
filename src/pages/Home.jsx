@@ -8,14 +8,19 @@ import { FaArrowUp } from "react-icons/fa"; // Import arrow icon
 
 const slides = [
   {
-    image: "/fruit-3247447_1280.jpg", // Correct public folder usage
-    title: "Nasma Agribusiness",
-    description: "Empowering Sustainable Growth in Rural Cocoa Communities.",
+    image: "/20241112_162930.jpg", // Correct public folder usage
+    title: "Empowering Sustainable Agriculture",
+    description: "Transforming waste into wealth through innovation and collaboration.",
   },
   {
     image: "/20241112_164309.jpg", // Correct public folder usage
-    title: "Enabling Young People and Women to Thrive",
-    description: "Promoting eco-friendly and sustainable farming practices.",
+    title: "Opportunities for Women and Youth",
+    description: "Advancing eco-friendly farming and creating inclusive opportunities for growth.",
+  },
+  {
+    image: "/20241112_165510 (1).jpg", // Placeholder for an image related to disability inclusion
+    title: "Inclusive Agriculture",
+    description: "Empowering persons with disabilities through accessible farming solutions.",
   },
 ];
 
@@ -146,7 +151,7 @@ const Home = () => {
         }}
       >
         <ExperienceSection />
-        <ServicesSection />
+        {/* <ServicesSection /> */}
         <AgribusinessCounter />
         <WhyChooseUs />
         <ContactPage />

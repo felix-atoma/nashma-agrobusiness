@@ -160,7 +160,7 @@ const Navbar = () => {
           {/* Contact Number */}
           <div className="phone-container" style={phoneContainerStyle}>
             <FaPhoneAlt />
-            <span>(+233) 0545086577/0243241649</span>
+            <span>(+233) 0545086577</span>
           </div>
         </div>
       </nav>

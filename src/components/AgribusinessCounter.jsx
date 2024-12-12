@@ -2,14 +2,15 @@ import React, { useEffect, useState, useRef } from "react";
 
 const AgribusinessCounter = () => {
   const stats = [
-    { number: 20, text: "List of any and all companies related to agribusiness." },
-    { number: 10000, text: "List of any and all companies related to agribusiness." },
-    { number: 12, text: "List of any and all companies related to agribusiness." },
-    { number: 280, text: "List of any and all companies related to agribusiness." },
+    { number: 500, text: "Women Empowered" },
+    { number: 300, text: "Youth Trained" },
+    { number: 150, text: "Disabilities Supported" },
+    { number: 1000, text: "Tons of Cocoa Waste Recycled" },
   ];
 
   return (
     <div style={containerStyle}>
+      <h2 style={titleStyle}>Key Stats</h2>
       <div style={contentStyle}>
         {stats.map((stat, index) => (
           <div key={index} style={itemStyle}>
@@ -18,7 +19,6 @@ const AgribusinessCounter = () => {
           </div>
         ))}
       </div>
-      <div style={lineStyle}></div>
     </div>
   );
 };
@@ -76,31 +76,31 @@ const Counter = ({ target }) => {
   );
 };
 
-// Styles (unchanged)
+// Styles
 const containerStyle = {
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
-  width: "100%",
+  textAlign: "center",
   padding: "2rem",
   backgroundColor: "#FFFFFF",
-  position: "relative",
-  boxSizing: "border-box",
+};
+
+const titleStyle = {
+  fontSize: "2rem",
+  color: "#333",
+  marginBottom: "1.5rem",
+  fontWeight: "bold",
 };
 
 const contentStyle = {
   display: "flex",
-  justifyContent: "center",
+  justifyContent: "space-around",
   alignItems: "center",
-  gap: "2rem",
   flexWrap: "wrap",
+  gap: "2rem",
 };
 
 const itemStyle = {
   textAlign: "center",
   flex: "1 1 200px",
-  margin: "1rem 0",
 };
 
 const counterStyle = {
@@ -112,17 +112,8 @@ const counterStyle = {
 
 const textStyle = {
   fontSize: "1rem",
-  color: "#333333",
+  color: "#333",
   marginTop: "0.5rem",
-  maxWidth: "200px",
-};
-
-const lineStyle = {
-  width: "100%",
-  height: "2px",
-  backgroundColor: "#CCCCCC",
-  position: "absolute",
-  bottom: 0,
 };
 
 export default AgribusinessCounter;

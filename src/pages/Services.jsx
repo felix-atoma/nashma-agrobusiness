@@ -8,43 +8,36 @@ const Services = () => {
   const services = [
     {
       id: "potash-production",
-      image: "/20241126_165204.jpg",
+      image: "/20241112_160941.jpg",
       title: "Potash Production",
       description:
-        "We specialize in producing high-quality potash for agricultural and industrial use.",
+        "We specialize in producing high-quality potash from cocoa pods, turning waste into wealth. Potash is used in various applications including black soap production, water treatment, and food preservation.",
     },
     {
       id: "global-bulk-supply",
       image: "/20241126_165239.jpg",
       title: "Global Bulk Supply",
       description:
-        "We ensure the efficient global supply of bulk products to meet diverse needs.",
+        "We ensure the efficient global supply of bulk products, including potash, to meet diverse market needs. Our goal is to provide a direct market for producers without the hassle of searching for buyers.",
     },
     {
       id: "skills-training",
-      image: "/20241112_160941.jpg",
+      image: "/20241112_162930.jpg",
       title: "Skills Training in Potash and African Black Soap",
       description:
-        "Empowering communities with skills to produce potash and African black soap, fostering sustainable livelihoods.",
+        "Empowering communities with skills to produce potash and African black soap, fostering sustainable livelihoods and ensuring they can turn waste into wealth.",
     },
     {
       id: "sustainable-farming-workshops",
-      image: "/20241128_150316.jpg",
+      image: "/20241112_163334.jpg",
       title: "Sustainable Farming Workshops",
       description:
-        "Teaching modern and sustainable farming techniques to enhance productivity while protecting the environment.",
-    },
-    {
-      id: "eco-friendly-packaging",
-      image: "/UUU Roll-up_Mockup_1~2[2].jpg",
-      title: "Eco-Friendly Packaging Solutions",
-      description:
-        "Providing sustainable and eco-friendly packaging options for agricultural and industrial products.",
+        "Teaching modern and sustainable farming techniques to enhance productivity while protecting the environment. We aim to integrate these practices with potash production and market access.",
     },
   ];
 
   const handleButtonClick = (id) => {
-    navigate(`/services/${id}`); // Navigate to the dynamic route for the service
+    navigate(`/contact`); // Navigate to the dynamic route for the service
   };
 
   return (
@@ -87,7 +80,7 @@ const Services = () => {
             }}
           >
             {/* Image */}
-            <div style={{ flex: "1 1 100px", maxWidth: "100%" }}>
+            <div style={{ flex: "1 1 100px", maxWidth: "100%", height: "150px" }}>
               <img
                 src={service.image}
                 alt={service.title}
@@ -151,7 +144,7 @@ const Services = () => {
                 }
               >
                 <FaPhoneAlt />
-                Get This Service
+                Contact Us
               </button>
             </div>
           </div>

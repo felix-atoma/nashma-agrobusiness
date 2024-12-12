@@ -1,4 +1,5 @@
-import { FaSeedling, FaShippingFast, FaChalkboardTeacher } from "react-icons/fa";
+import React from "react";
+import { FaSeedling, FaShippingFast, FaChalkboardTeacher, FaHandsHelping } from "react-icons/fa";
 
 const About = () => {
   // Full-width image container style
@@ -41,7 +42,7 @@ const About = () => {
   // Image container style with reduced height
   const imageContainerStyle = {
     width: "50vw", // Half the width of the viewport
-    height: "36vw", // Reduced height for the image
+    height: "44vw", // Reduced height for the image
     overflow: "hidden", // Hide overflow to keep the image contained within the bounds
     position: "relative",
   };
@@ -59,7 +60,8 @@ const About = () => {
     width: "50vw",
     padding: "2rem",
     textAlign: "left",
-    backgroundColor: "#F9F9F9", // Light background for contrast
+    backgroundColor: "", 
+    marginTop:"",
   };
 
   // Heading style
@@ -94,7 +96,7 @@ const About = () => {
   // Button style
   const buttonStyle = {
     marginTop: "auto", // Push button to the bottom of the text container
-    padding: "0.8rem 1.5rem", // Reduced padding for a narrower button
+    padding: "0.8rem 1.5rem",
     backgroundColor: "#71B34A", // Button green color
     color: "#FFFFFF",
     fontSize: "1rem",
@@ -103,12 +105,6 @@ const About = () => {
     borderRadius: "5px",
     cursor: "pointer",
     transition: "transform 0.3s ease", // Smooth transition for hover effect
-  };
-
-  // Button hover style
-  const buttonHoverStyle = {
-    ...buttonStyle,
-    transform: "translateY(-5px)", // Move the button up on hover
   };
 
   return (
@@ -122,7 +118,7 @@ const About = () => {
         />
         {/* About text in the center of the image */}
         <div style={textContainerOnImageStyle}>
-          About NASHMA
+          Imagine a world where waste becomes wealth. I'm Malik from Nashma Agribusiness Ltd.
         </div>
       </div>
 
@@ -136,43 +132,42 @@ const About = () => {
           <img
             src="/20241128_150316.jpg"
             alt="NASHMA process"
-            style={imageStyle} // Apply the imageStyle with objectPosition: "top"
+            style={imageStyle}
           />
         </div>
 
         {/* Right Text */}
         <div style={textContainerStyle}>
-          <h2 style={headingStyle}>About NASHMA</h2>
+          <h2 style={headingStyle}>Empowering Communities Through Innovation</h2>
+          <div style={pointContainerStyle}>
+            <FaHandsHelping style={iconStyle} />
+            <p style={textStyle}>
+              At NASHMA, we empower women, young people, and individuals with disabilities to turn cocoa waste into wealth by converting cocoa pods into potash and connecting them with direct markets.
+            </p>
+          </div>
           <div style={pointContainerStyle}>
             <FaChalkboardTeacher style={iconStyle} />
             <p style={textStyle}>
-              NASHMA is a sustainable agribusiness specializing in training
-              farmers to turn cocoa pods into potash and marketing potash to
-              diverse industries such as fertilizer and soap-making.
+              We provide training and set up processing facilities, ensuring our beneficiaries can focus on production without the burden of searching for buyers.
             </p>
           </div>
           <div style={pointContainerStyle}>
             <FaSeedling style={iconStyle} />
             <p style={textStyle}>
-              Trainings are conducted in rural communities, where facilities
-              are established for producing and selling potash after it's been
-              processed.
+              Potash produced by our communities is used in industries such as black soap production, water treatment, and food preservation.
             </p>
           </div>
           <div style={pointContainerStyle}>
             <FaShippingFast style={iconStyle} />
             <p style={textStyle}>
-              Potash is shipped from rural communities when it reaches a
-              sufficient quantity and is sold to industries for soap-making,
-              fertilizers, and other applications.
+              We handle logistics and ensure the processed potash reaches diverse industries, enabling sustainable income for our partners.
             </p>
           </div>
 
           {/* Read More About Us Button */}
           <button
             style={buttonStyle}
-            onMouseOver={(e) => (e.currentTarget.style.transform = "translateY(-5px)")}
-            onMouseOut={(e) => (e.currentTarget.style.transform = "translateY(0)")}
+            onClick={() => console.log("Navigating to more about us...")}
           >
             Read More About Us
           </button>
