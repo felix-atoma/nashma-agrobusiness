@@ -8,7 +8,7 @@ import { FaArrowUp } from "react-icons/fa"; // Import arrow icon
 
 const slides = [
   {
-    image: "/h1_hero.png", // Correct public folder usage
+    image: "/fruit-3247447_1280.jpg", // Correct public folder usage
     title: "Nasma Agribusiness",
     description: "Empowering Sustainable Growth in Rural Cocoa Communities.",
   },
