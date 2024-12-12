@@ -76,7 +76,7 @@ const Footer = () => {
           <a href="/contact" style={linkStyle} onMouseOver={(e) => (e.target.style.color = socialMediaHoverStyle.color)} onMouseOut={(e) => (e.target.style.color = linkStyle.color)}>
             Contact
           </a>
-          <a href="#faq" style={linkStyle} onMouseOver={(e) => (e.target.style.color = socialMediaHoverStyle.color)} onMouseOut={(e) => (e.target.style.color = linkStyle.color)}>
+          <a href="/faq" style={linkStyle} onMouseOver={(e) => (e.target.style.color = socialMediaHoverStyle.color)} onMouseOut={(e) => (e.target.style.color = linkStyle.color)}>
             FAQ
           </a>
         </div>

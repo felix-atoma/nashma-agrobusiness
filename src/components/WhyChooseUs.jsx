@@ -33,40 +33,22 @@ const WhyChooseUs = () => {
         <div style={textContentStyle}>
           <h1 style={headingStyle}>Why you should choose us</h1>
 
-          <div style={pointContainerStyle}>
-            <FaHandsHelping style={iconStyle} />
-            <p style={paragraphStyle}>
-              Hardwork: We believe in the power of persistence and dedication to achieve success.
-            </p>
-          </div>
+          <p style={paragraphStyle}>
+            In rural Ghanaian cocoa communities, women and youth face idle months during off-seasons, while 70-90% of cocoa pods rot, harming environments and health.
+          </p>
+          <p style={paragraphStyle}>
+            Our innovative solution empowers women and youth to transform cocoa waste into valuable potash, generating income and sustainability.
+          </p>
 
-          <div style={pointContainerStyle}>
-            <FaLightbulb style={iconStyle} />
-            <p style={paragraphStyle}>
-              Entrepreneurship: We foster innovative thinking and the spirit of entrepreneurship.
-            </p>
-          </div>
+          <ul style={benefitsListStyle}>
+            <li style={listItemStyle}><FaHandsHelping style={iconStyle} /> Economic opportunities for marginalized groups.</li>
+            <li style={listItemStyle}><FaLightbulb style={iconStyle} /> Reduced environmental hazards.</li>
+            <li style={listItemStyle}><FaSeedling style={iconStyle} /> Sustainable cocoa production.</li>
+          </ul>
 
-          <div style={pointContainerStyle}>
-            <FaUsers style={iconStyle} />
-            <p style={paragraphStyle}>
-              Mentorship: We provide guidance and support to ensure your growth and success.
-            </p>
-          </div>
-
-          <div style={pointContainerStyle}>
-            <FaBalanceScale style={iconStyle} />
-            <p style={paragraphStyle}>
-              Fair Trade: We prioritize fair and transparent business practices.
-            </p>
-          </div>
-
-          <div style={pointContainerStyle}>
-            <FaSeedling style={iconStyle} />
-            <p style={paragraphStyle}>
-              Empowerment & Sense of Community: We empower farmers and communities for long-term growth.
-            </p>
-          </div>
+          <p style={paragraphStyle}>
+            Join Nashma Agribusiness in unlocking cocoa waste potential, transforming rural livelihoods.
+          </p>
 
           <button
             style={buttonStyle}
@@ -121,6 +103,21 @@ const paragraphStyle = {
   lineHeight: "1.6",
 };
 
+const benefitsListStyle = {
+  listStyleType: "none",
+  padding: 0,
+  margin: "1rem 0",
+};
+
+const listItemStyle = {
+  display: "flex",
+  alignItems: "center",
+  gap: "0.5rem",
+  fontSize: "1rem",
+  color: "#333333",
+  marginBottom: "0.5rem",
+};
+
 const buttonStyle = {
   display: "flex",
   alignItems: "center",
@@ -149,13 +146,6 @@ const imageStyle = {
   maxHeight: "80%",
   objectFit: "cover",
   borderRadius: "8px",
-};
-
-const pointContainerStyle = {
-  display: "flex",
-  alignItems: "flex-start",
-  gap: "1rem",
-  marginBottom: "1rem",
 };
 
 const iconStyle = {
