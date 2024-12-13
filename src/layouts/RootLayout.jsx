@@ -10,9 +10,10 @@ const RootLayout = () => {
           top: 0,
           left: 0,
           zIndex: 50,
-          width: '100vw', // Ensure full width
+          width: '100%', // Ensure full width
           backgroundColor: 'white', // Change as needed
           boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)',
+          overflow: 'hidden',
       }}
     >
       {/* Navbar */}
@@ -31,8 +32,8 @@ const RootLayout = () => {
         style={{
           flex: 1,
           margin: 0,
-          padding: 0,
-          width: '100vw', 
+          padding: '0px',
+          width: '100%', 
         }}
       >
         { <Outlet /> }

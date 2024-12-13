@@ -100,7 +100,7 @@ const Navbar = () => {
             alignItems: "center",
             height: "100vh",
             backgroundColor: "white",
-            position: "fixed",
+            position: "",
             top: 0,
             left: 0,
             width: "100%",
