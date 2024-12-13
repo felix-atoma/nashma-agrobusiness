@@ -1,5 +1,6 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaFacebook, FaInstagram } from 'react-icons/fa';
+import { SiTiktok } from 'react-icons/si'; // TikTok icon
 
 const Footer = () => {
   const footerStyle = {
@@ -80,10 +81,9 @@ const Footer = () => {
         {/* Social Media Links */}
         <div style={socialLinksStyle}>
           {[
-            { href: 'https://facebook.com/NashmaAgribusiness', icon: <FaFacebook /> },
-            { href: 'https://instagram.com/nashma_agribusiness', icon: <FaInstagram /> },
-            { href: 'https://tiktok.com/@nashma_agribusines_ltd', icon: <FaInstagram /> },
-            { href: 'https://linkedin.com/in/nashma-agribusiness', icon: <FaLinkedin /> },
+            { href: 'https://web.facebook.com/profile.php?id=61569281702237', icon: <FaFacebook /> },
+            { href: 'https://www.tiktok.com/@nasma_agribusines_ltd?_t=8s5LHKwrZ5B&_r=1', icon: <SiTiktok /> },
+            { href: 'https://www.instagram.com/nashma_agribusiness/profilecard/?igsh=MWxna2NsYzhocHJqdQ==', icon: <FaInstagram /> },
           ].map((social, idx) => (
             <a
               key={idx}
