@@ -7,7 +7,7 @@ const ContactForm = () => {
     message: "",
     name: "",
     email: "",
-    phone: "", // Added phone field
+    phone: "",
     subject: "",
   });
 
@@ -26,14 +26,14 @@ const ContactForm = () => {
     setIsSending(true);
     try {
       await emailjs.send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS Service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS Template ID
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
         formData,
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS Public Key
+        "YOUR_PUBLIC_KEY"
       );
       setSuccess(true);
       alert("Your message has been sent!");
-      setFormData({ message: "", name: "", email: "", phone: "", subject: "" }); // Reset form
+      setFormData({ message: "", name: "", email: "", phone: "", subject: "" });
     } catch (error) {
       alert("An error occurred. Please try again later.");
       console.error("EmailJS error:", error);
@@ -43,14 +43,21 @@ const ContactForm = () => {
   };
 
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem" }}>
-      <div style={{ position: "relative", marginTop: "0" }}>
+    <div
+      style={{
+        width: "100%",
+        margin: "0 auto",
+        padding: "2rem",
+        boxSizing: "border-box",
+      }}
+    >
+      <div style={{ position: "relative", width: "100%", marginBottom: "2rem" }}>
         <img
           src="/20241112_164309.jpg"
           alt="Contact"
           style={{
-            width: "100vw", // Full viewport width
-            height: "100vh", // 50% of the viewport height
+            width: "100%",
+            height: "100vh",
             objectFit: "cover",
           }}
         />
@@ -70,7 +77,6 @@ const ContactForm = () => {
           display: "flex",
           gap: "4rem",
           alignItems: "flex-start",
-          flexDirection: "row",
           flexWrap: "wrap",
         }}
       >
@@ -94,6 +100,7 @@ const ContactForm = () => {
               border: "1px solid #38A169",
               resize: "none",
               fontSize: "1rem",
+              width: "100%",
             }}
             rows="6"
             required
@@ -136,7 +143,7 @@ const ContactForm = () => {
               required
             />
             <input
-              type="tel" // Changed to tel for phone number
+              type="tel"
               name="phone"
               placeholder="Enter your phone number"
               value={formData.phone}
@@ -186,13 +193,10 @@ const ContactForm = () => {
 
         <div
           style={{
-            marginTop: "0",
             flex: "1",
-            padding: "",
             display: "flex",
             flexDirection: "column",
             gap: "3rem",
-            marginLeft: "5rem",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
