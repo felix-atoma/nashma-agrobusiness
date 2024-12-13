@@ -75,7 +75,7 @@ const ContactForm = () => {
       <div
         style={{
           display: "flex",
-          gap: "4rem",
+          gap: "2rem",
           alignItems: "flex-start",
           flexWrap: "wrap",
         }}
@@ -83,7 +83,7 @@ const ContactForm = () => {
         <form
           onSubmit={handleSubmit}
           style={{
-            flex: "2",
+            flex: "1 1 60%",
             display: "flex",
             flexDirection: "column",
             gap: "1.5rem",
@@ -121,10 +121,11 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               style={{
-                flex: "1",
+                flex: "1 1 calc(33.333% - 1rem)",
                 padding: "1rem",
                 border: "1px solid #38A169",
                 fontSize: "1rem",
+                minWidth: "200px",
               }}
               required
             />
@@ -135,10 +136,11 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               style={{
-                flex: "1",
+                flex: "1 1 calc(33.333% - 1rem)",
                 padding: "1rem",
                 border: "1px solid #38A169",
                 fontSize: "1rem",
+                minWidth: "200px",
               }}
               required
             />
@@ -149,10 +151,11 @@ const ContactForm = () => {
               value={formData.phone}
               onChange={handleChange}
               style={{
-                flex: "1",
+                flex: "1 1 calc(33.333% - 1rem)",
                 padding: "1rem",
                 border: "1px solid #38A169",
                 fontSize: "1rem",
+                minWidth: "200px",
               }}
               required
             />
@@ -193,7 +196,7 @@ const ContactForm = () => {
 
         <div
           style={{
-            flex: "1",
+            flex: "1 1 30%",
             display: "flex",
             flexDirection: "column",
             gap: "3rem",
