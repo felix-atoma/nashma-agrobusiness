@@ -92,9 +92,10 @@ const titleStyle = {
 
 const contentStyle = {
   display: "flex",
+  flexDirection: "row", // Horizontal on large screens
+  flexWrap: "wrap", // Allows wrapping on smaller screens
   justifyContent: "space-around",
   alignItems: "center",
-  flexWrap: "wrap",
   gap: "2rem",
 };
 

@@ -69,18 +69,18 @@ const Services = () => {
             key={service.id}
             style={{
               display: "flex",
-              flexDirection: "row",
+              flexDirection: "column",
               backgroundColor: "#d4edda",
               borderRadius: "8px",
               boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
               overflow: "hidden",
               alignItems: "center",
               marginBottom: "20px",
-              flexWrap: "wrap",
+              height: "100%", // Ensure all cards have the same height
             }}
           >
             {/* Image */}
-            <div style={{ flex: "1 1 100px", maxWidth: "100%", height: "150px" }}>
+            <div style={{ flex: "1", width: "100%", height: "150px" }}>
               <img
                 src={service.image}
                 alt={service.title}
@@ -95,12 +95,11 @@ const Services = () => {
             {/* Content */}
             <div
               style={{
-                flex: "1 1 300px",
+                flex: "1 1 250px",
                 padding: "16px",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
-                minWidth: "250px",
               }}
             >
               <h3

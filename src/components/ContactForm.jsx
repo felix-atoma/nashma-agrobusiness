@@ -7,8 +7,8 @@ const ContactForm = () => {
     message: "",
     name: "",
     email: "",
+    phone: "", // Added phone field
     subject: "",
-    phone: "",
   });
 
   const [isSending, setIsSending] = useState(false);
@@ -26,14 +26,14 @@ const ContactForm = () => {
     setIsSending(true);
     try {
       await emailjs.send(
-        "YOUR_SERVICE_ID", 
-        "YOUR_TEMPLATE_ID", 
+        "YOUR_SERVICE_ID", // Replace with your EmailJS Service ID
+        "YOUR_TEMPLATE_ID", // Replace with your EmailJS Template ID
         formData,
-        "YOUR_PUBLIC_KEY"
+        "YOUR_PUBLIC_KEY" // Replace with your EmailJS Public Key
       );
       setSuccess(true);
       alert("Your message has been sent!");
-      setFormData({ message: "", name: "", email: "", subject: "", phone: "" });
+      setFormData({ message: "", name: "", email: "", phone: "", subject: "" }); // Reset form
     } catch (error) {
       alert("An error occurred. Please try again later.");
       console.error("EmailJS error:", error);
@@ -43,34 +43,24 @@ const ContactForm = () => {
   };
 
   return (
-    <div
-      style={{
-        maxWidth: "1200px",
-        margin: "0 auto",
-        padding: "2rem",
-        display: "flex",
-        flexDirection: "column",
-        gap: "2rem",
-      }}
-    >
-      <div style={{ position: "relative" }}>
+    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem" }}>
+      <div style={{ position: "relative", marginTop: "0" }}>
         <img
           src="/20241112_164309.jpg"
           alt="Contact"
           style={{
-            width: "100%",
-            height: "auto",
-            maxHeight: "50vh",
+            width: "100vw", // Full viewport width
+            height: "100vh", // 50% of the viewport height
             objectFit: "cover",
           }}
         />
       </div>
       <h2
         style={{
-          fontSize: "1.8rem",
-          marginBottom: "1.5rem",
+          fontSize: "2rem",
+          marginBottom: "2rem",
           color: "#333",
-          textAlign: "center",
+          textAlign: "left",
         }}
       >
         Get in Touch
@@ -78,10 +68,10 @@ const ContactForm = () => {
       <div
         style={{
           display: "flex",
-          gap: "2rem",
+          gap: "4rem",
+          alignItems: "flex-start",
           flexDirection: "row",
           flexWrap: "wrap",
-          alignItems: "flex-start",
         }}
       >
         <form
@@ -90,7 +80,7 @@ const ContactForm = () => {
             flex: "2",
             display: "flex",
             flexDirection: "column",
-            gap: "1rem",
+            gap: "1.5rem",
             width: "100%",
           }}
         >
@@ -104,7 +94,6 @@ const ContactForm = () => {
               border: "1px solid #38A169",
               resize: "none",
               fontSize: "1rem",
-              borderRadius: "5px",
             }}
             rows="6"
             required
@@ -112,9 +101,10 @@ const ContactForm = () => {
           <div
             style={{
               display: "flex",
-              flexDirection: "column",
+              flexDirection: "row",
               gap: "1rem",
               width: "100%",
+              flexWrap: "wrap",
             }}
           >
             <input
@@ -124,10 +114,10 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               style={{
+                flex: "1",
                 padding: "1rem",
                 border: "1px solid #38A169",
                 fontSize: "1rem",
-                borderRadius: "5px",
               }}
               required
             />
@@ -138,28 +128,28 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               style={{
+                flex: "1",
                 padding: "1rem",
                 border: "1px solid #38A169",
                 fontSize: "1rem",
-                borderRadius: "5px",
+              }}
+              required
+            />
+            <input
+              type="tel" // Changed to tel for phone number
+              name="phone"
+              placeholder="Enter your phone number"
+              value={formData.phone}
+              onChange={handleChange}
+              style={{
+                flex: "1",
+                padding: "1rem",
+                border: "1px solid #38A169",
+                fontSize: "1rem",
               }}
               required
             />
           </div>
-          <input
-            type="text"
-            name="phone"
-            placeholder="Enter your phone number"
-            value={formData.phone}
-            onChange={handleChange}
-            style={{
-              padding: "1rem",
-              border: "1px solid #38A169",
-              fontSize: "1rem",
-              borderRadius: "5px",
-            }}
-            required
-          />
           <input
             type="text"
             name="subject"
@@ -170,7 +160,6 @@ const ContactForm = () => {
               padding: "1rem",
               border: "1px solid #38A169",
               fontSize: "1rem",
-              borderRadius: "5px",
             }}
             required
           />
@@ -178,43 +167,50 @@ const ContactForm = () => {
             type="submit"
             style={{
               padding: "1rem",
-              border: "none",
-              backgroundColor: "#38A169",
-              color: "white",
+              border: "2px solid #38A169",
+              backgroundColor: "white",
+              color: "#38A169",
               cursor: isSending ? "not-allowed" : "pointer",
               fontWeight: "bold",
-              fontSize: "1rem",
-              borderRadius: "5px",
+              fontSize: "1.2rem",
+              width: "150px",
+              transition: "all 0.3s ease",
+              marginTop: "1rem",
+              alignSelf: "flex-start",
             }}
             disabled={isSending}
           >
             {isSending ? "Sending..." : "Send"}
           </button>
         </form>
+
         <div
           style={{
+            marginTop: "0",
             flex: "1",
+            padding: "",
             display: "flex",
             flexDirection: "column",
-            gap: "1.5rem",
+            gap: "3rem",
+            marginLeft: "5rem",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <FaHome size={24} color="#38A169" />
+            <FaHome size={28} color="#38A169" />
             <div>
               <p style={{ fontWeight: "bold", margin: "0" }}>Kumasi, Ghana</p>
               <p style={{ margin: "0" }}>Apemso-KNUST, Kumasi</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <FaPhone size={24} color="#38A169" />
+            <FaPhone size={28} color="#38A169" />
             <div>
-              <p style={{ margin: "0" }}>(+233) 0545086577 / 0243241649</p>
+              <p style={{ margin: "0" }}>0545086577</p>
               <p style={{ margin: "0" }}>Mon to Fri 9am to 6pm</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <FaEnvelope size={24} color="#38A169" />
+            <FaEnvelope size={28} color="#38A169" />
             <div>
               <p style={{ margin: "0" }}>nashmafarms@gmail.com</p>
               <p style={{ margin: "0" }}>Reach out anytime!</p>

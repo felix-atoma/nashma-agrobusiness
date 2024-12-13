@@ -49,6 +49,7 @@ const Mission = () => {
   const containerStyle = {
     backgroundColor: "#f7fafc",
     padding: "2rem 1rem",
+    minHeight: "100vh", // Ensures the component occupies the full page
   };
 
   const titleStyle = {
@@ -61,7 +62,7 @@ const Mission = () => {
 
   const gridStyle = {
     display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+    gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
     gap: "1.5rem",
     maxWidth: "1200px",
     margin: "0 auto",
