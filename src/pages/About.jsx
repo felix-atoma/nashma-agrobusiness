@@ -118,7 +118,7 @@ const About = () => {
         />
         {/* About text in the center of the image */}
         <div style={textContainerOnImageStyle}>
-          Imagine a world where waste becomes wealth. I'm Malik from Nashma Agribusiness Ltd.
+          Imagine a world where waste becomes wealth. 
         </div>
       </div>
 
