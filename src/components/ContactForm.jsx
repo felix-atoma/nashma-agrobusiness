@@ -8,7 +8,7 @@ const ContactForm = () => {
     name: "",
     email: "",
     subject: "",
-    phone: "", // Add phone to form data
+    phone: "",
   });
 
   const [isSending, setIsSending] = useState(false);
@@ -26,10 +26,10 @@ const ContactForm = () => {
     setIsSending(true);
     try {
       await emailjs.send(
-        "YOUR_SERVICE_ID", // Replace with your EmailJS Service ID
-        "YOUR_TEMPLATE_ID", // Replace with your EmailJS Template ID
+        "YOUR_SERVICE_ID", 
+        "YOUR_TEMPLATE_ID", 
         formData,
-        "YOUR_PUBLIC_KEY" // Replace with your EmailJS Public Key
+        "YOUR_PUBLIC_KEY"
       );
       setSuccess(true);
       alert("Your message has been sent!");
@@ -43,24 +43,34 @@ const ContactForm = () => {
   };
 
   return (
-    <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem" }}>
-      <div style={{ position: "relative", marginTop: "0" }}>
+    <div
+      style={{
+        maxWidth: "1200px",
+        margin: "0 auto",
+        padding: "2rem",
+        display: "flex",
+        flexDirection: "column",
+        gap: "2rem",
+      }}
+    >
+      <div style={{ position: "relative" }}>
         <img
           src="/20241112_164309.jpg"
           alt="Contact"
           style={{
-            width: "100vw",
-            height: "100vh",
+            width: "100%",
+            height: "auto",
+            maxHeight: "50vh",
             objectFit: "cover",
           }}
         />
       </div>
       <h2
         style={{
-          fontSize: "2rem",
-          marginBottom: "2rem",
+          fontSize: "1.8rem",
+          marginBottom: "1.5rem",
           color: "#333",
-          textAlign: "left",
+          textAlign: "center",
         }}
       >
         Get in Touch
@@ -68,10 +78,10 @@ const ContactForm = () => {
       <div
         style={{
           display: "flex",
-          gap: "4rem",
-          alignItems: "flex-start",
+          gap: "2rem",
           flexDirection: "row",
           flexWrap: "wrap",
+          alignItems: "flex-start",
         }}
       >
         <form
@@ -80,7 +90,7 @@ const ContactForm = () => {
             flex: "2",
             display: "flex",
             flexDirection: "column",
-            gap: "1.5rem",
+            gap: "1rem",
             width: "100%",
           }}
         >
@@ -94,6 +104,7 @@ const ContactForm = () => {
               border: "1px solid #38A169",
               resize: "none",
               fontSize: "1rem",
+              borderRadius: "5px",
             }}
             rows="6"
             required
@@ -101,9 +112,9 @@ const ContactForm = () => {
           <div
             style={{
               display: "flex",
-              gap: "1.5rem",
+              flexDirection: "column",
+              gap: "1rem",
               width: "100%",
-              flexWrap: "wrap",
             }}
           >
             <input
@@ -113,10 +124,10 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               style={{
-                flex: "1",
                 padding: "1rem",
                 border: "1px solid #38A169",
                 fontSize: "1rem",
+                borderRadius: "5px",
               }}
               required
             />
@@ -127,10 +138,10 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               style={{
-                flex: "1",
                 padding: "1rem",
                 border: "1px solid #38A169",
                 fontSize: "1rem",
+                borderRadius: "5px",
               }}
               required
             />
@@ -145,6 +156,7 @@ const ContactForm = () => {
               padding: "1rem",
               border: "1px solid #38A169",
               fontSize: "1rem",
+              borderRadius: "5px",
             }}
             required
           />
@@ -158,6 +170,7 @@ const ContactForm = () => {
               padding: "1rem",
               border: "1px solid #38A169",
               fontSize: "1rem",
+              borderRadius: "5px",
             }}
             required
           />
@@ -165,50 +178,43 @@ const ContactForm = () => {
             type="submit"
             style={{
               padding: "1rem",
-              border: "2px solid #38A169",
-              backgroundColor: "white",
-              color: "#38A169",
+              border: "none",
+              backgroundColor: "#38A169",
+              color: "white",
               cursor: isSending ? "not-allowed" : "pointer",
               fontWeight: "bold",
-              fontSize: "1.2rem",
-              width: "150px",
-              transition: "all 0.3s ease",
-              marginTop: "1rem",
-              alignSelf: "flex-start",
+              fontSize: "1rem",
+              borderRadius: "5px",
             }}
             disabled={isSending}
-            onMouseEnter={(e) => (e.target.style.backgroundColor = "#38A169")}
-            onMouseLeave={(e) => (e.target.style.backgroundColor = "white")}
           >
             {isSending ? "Sending..." : "Send"}
           </button>
         </form>
         <div
           style={{
-            marginTop: "0",
             flex: "1",
             display: "flex",
             flexDirection: "column",
-            gap: "3rem",
-            marginLeft: "5rem",
+            gap: "1.5rem",
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <FaHome size={28} color="#38A169" />
+            <FaHome size={24} color="#38A169" />
             <div>
               <p style={{ fontWeight: "bold", margin: "0" }}>Kumasi, Ghana</p>
               <p style={{ margin: "0" }}>Apemso-KNUST, Kumasi</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <FaPhone size={28} color="#38A169" />
+            <FaPhone size={24} color="#38A169" />
             <div>
               <p style={{ margin: "0" }}>(+233) 0545086577 / 0243241649</p>
               <p style={{ margin: "0" }}>Mon to Fri 9am to 6pm</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-            <FaEnvelope size={28} color="#38A169" />
+            <FaEnvelope size={24} color="#38A169" />
             <div>
               <p style={{ margin: "0" }}>nashmafarms@gmail.com</p>
               <p style={{ margin: "0" }}>Reach out anytime!</p>
