@@ -26,10 +26,10 @@ const ContactForm = () => {
     setIsSending(true);
     try {
       await emailjs.send(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_qvw1nee", // Replace with your service ID
+        "template_nck1umh", // Replace with your template ID
         formData,
-        "YOUR_PUBLIC_KEY"
+        "QKLwxjX-pqOTBiWsv" // Replace with your public key
       );
       setSuccess(true);
       alert("Your message has been sent!");
@@ -212,14 +212,14 @@ const ContactForm = () => {
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <FaPhone size={28} color="#38A169" />
             <div>
-              <p style={{ margin: "0" }}>0545086577</p>
+              <p style={{ margin: "0" }}>0244173068</p>
               <p style={{ margin: "0" }}>Mon to Fri 9am to 6pm</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <FaEnvelope size={28} color="#38A169" />
             <div>
-              <p style={{ margin: "0" }}>nashmafarms@gmail.com</p>
+              <p style={{ margin: "0" }}>felixatoma2@gmail.com</p>
               <p style={{ margin: "0" }}>Reach out anytime!</p>
             </div>
           </div>
