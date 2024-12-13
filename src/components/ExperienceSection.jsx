@@ -70,7 +70,7 @@ const ExperienceSection = () => {
         <div style={spinnerStyle}>
           <div style={logoContainerStyle}>
             <img
-              src="src/assets/loder.png"
+              src="/nashma-removebg-preview.png"
               alt="Logo"
               style={logoStyle}
             />

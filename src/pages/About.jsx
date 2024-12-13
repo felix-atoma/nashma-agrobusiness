@@ -4,7 +4,7 @@ import { FaSeedling, FaShippingFast, FaChalkboardTeacher, FaHandsHelping } from 
 const About = () => {
   // Full-width image container style
   const fullWidthImageContainerStyle = {
-    width: "100vw",
+    width: "100%",
     height: "90vh",
     overflow: "hidden",
     position: "relative", // Relative positioning for the absolute text container
@@ -24,55 +24,57 @@ const About = () => {
     left: "50%",
     transform: "translate(-50%, -50%)", // Centers the text
     color: "#FFFFFF",
-    textAlign: "center", // Center text horizontally
-    fontWeight: "bold", // Make text very bold
-    fontSize: "3rem", // Increase the font size for emphasis
-    zIndex: 10, // Ensure it appears above the image
+    textAlign: "center",
+    fontWeight: "bold",
+    fontSize: "3rem",
+    zIndex: 10,
   };
 
-  // Container for text and image
+  // Responsive container style for the text and image section
   const containerStyle = {
     display: "flex",
-    width: "100vw",
+    flexWrap: "wrap", // Enable wrapping for smaller screens
+    width: "100%",
     alignItems: "flex-start",
-    justifyContent: "space-between",
+    justifyContent: "center",
     padding: "2rem 0",
   };
 
-  // Image container style with reduced height
+  // Responsive image container style
   const imageContainerStyle = {
-    width: "50vw", // Half the width of the viewport
-    height: "44vw", // Reduced height for the image
-    overflow: "hidden", // Hide overflow to keep the image contained within the bounds
+    width: "100%",
+    maxWidth: "600px", // Restrict image width on larger screens
+    height: "300px", // Fixed height for responsive scaling
+    overflow: "hidden",
     position: "relative",
+    margin: "1rem 0", // Add margin for spacing on small screens
   };
 
   // Image style with object fit and positioning
   const imageStyle = {
     width: "100%",
     height: "100%",
-    objectFit: "cover", // Ensure the image fills the container
-    objectPosition: "top", // Focus on the top of the image to show the head
+    objectFit: "cover",
+    objectPosition: "center",
   };
 
-  // Text container style
+  // Responsive text container style
   const textContainerStyle = {
-    width: "50vw",
-    padding: "2rem",
+    width: "100%",
+    maxWidth: "600px", // Match image width
+    padding: "1rem",
     textAlign: "left",
-    backgroundColor: "", 
-    marginTop:"",
   };
 
   // Heading style
   const headingStyle = {
-    fontSize: "2.5rem",
+    fontSize: "2rem",
     fontWeight: "bold",
     marginBottom: "1.5rem",
     color: "#4A4A4A",
   };
 
-  // Point container style for the icons and text
+  // Point container style for icons and text
   const pointContainerStyle = {
     display: "flex",
     alignItems: "flex-start",
@@ -83,32 +85,33 @@ const About = () => {
   // Icon style
   const iconStyle = {
     fontSize: "2rem",
-    color: "#71B34A", // A green color for sustainability
+    color: "#71B34A",
   };
 
   // Text style
   const textStyle = {
-    fontSize: "1.1rem",
+    fontSize: "1rem",
     lineHeight: "1.6",
     color: "#4A4A4A",
   };
 
   // Button style
   const buttonStyle = {
-    marginTop: "auto", // Push button to the bottom of the text container
+    marginTop: "auto",
     padding: "0.8rem 1.5rem",
-    backgroundColor: "#71B34A", // Button green color
+    backgroundColor: "#71B34A",
     color: "#FFFFFF",
     fontSize: "1rem",
     fontWeight: "bold",
     border: "none",
     borderRadius: "5px",
     cursor: "pointer",
-    transition: "transform 0.3s ease", // Smooth transition for hover effect
+    transition: "transform 0.3s ease",
+    width: "100%",
   };
 
   return (
-    <>
+    <div style={{ overflowX: "hidden" }}>
       {/* Full-width image */}
       <div style={fullWidthImageContainerStyle}>
         <img
@@ -116,9 +119,8 @@ const About = () => {
           alt="NASHMA banner"
           style={fullWidthImageStyle}
         />
-        {/* About text in the center of the image */}
         <div style={textContainerOnImageStyle}>
-          Imagine a world where waste becomes wealth. 
+          Imagine a world where waste becomes wealth.
         </div>
       </div>
 
@@ -173,7 +175,7 @@ const About = () => {
           </button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

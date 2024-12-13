@@ -8,6 +8,7 @@ const ContactForm = () => {
     name: "",
     email: "",
     subject: "",
+    phone: "", // Add phone to form data
   });
 
   const [isSending, setIsSending] = useState(false);
@@ -32,7 +33,7 @@ const ContactForm = () => {
       );
       setSuccess(true);
       alert("Your message has been sent!");
-      setFormData({ message: "", name: "", email: "", subject: "" });
+      setFormData({ message: "", name: "", email: "", subject: "", phone: "" });
     } catch (error) {
       alert("An error occurred. Please try again later.");
       console.error("EmailJS error:", error);
@@ -44,16 +45,15 @@ const ContactForm = () => {
   return (
     <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem" }}>
       <div style={{ position: "relative", marginTop: "0" }}>
-      <img
-  src="/20241112_164309.jpg"
-  alt="Contact"
-  style={{
-    width: "100vw", // Full viewport width
-    height: "100vh", // 50% of the viewport height
-    objectFit: "cover",
-  }}
-/>
-
+        <img
+          src="/20241112_164309.jpg"
+          alt="Contact"
+          style={{
+            width: "100vw",
+            height: "100vh",
+            objectFit: "cover",
+          }}
+        />
       </div>
       <h2
         style={{
@@ -137,6 +137,19 @@ const ContactForm = () => {
           </div>
           <input
             type="text"
+            name="phone"
+            placeholder="Enter your phone number"
+            value={formData.phone}
+            onChange={handleChange}
+            style={{
+              padding: "1rem",
+              border: "1px solid #38A169",
+              fontSize: "1rem",
+            }}
+            required
+          />
+          <input
+            type="text"
             name="subject"
             placeholder="Enter subject"
             value={formData.subject}
@@ -164,16 +177,16 @@ const ContactForm = () => {
               alignSelf: "flex-start",
             }}
             disabled={isSending}
+            onMouseEnter={(e) => (e.target.style.backgroundColor = "#38A169")}
+            onMouseLeave={(e) => (e.target.style.backgroundColor = "white")}
           >
             {isSending ? "Sending..." : "Send"}
           </button>
         </form>
-
         <div
           style={{
             marginTop: "0",
             flex: "1",
-            padding: "",
             display: "flex",
             flexDirection: "column",
             gap: "3rem",
@@ -184,13 +197,13 @@ const ContactForm = () => {
             <FaHome size={28} color="#38A169" />
             <div>
               <p style={{ fontWeight: "bold", margin: "0" }}>Kumasi, Ghana</p>
-              <p style={{ margin: "0" }}>Apemso-KNUST,Kumasi</p>
+              <p style={{ margin: "0" }}>Apemso-KNUST, Kumasi</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <FaPhone size={28} color="#38A169" />
             <div>
-              <p style={{ margin: "0" }}>(+233) 0545086577/0243241649</p>
+              <p style={{ margin: "0" }}>(+233) 0545086577 / 0243241649</p>
               <p style={{ margin: "0" }}>Mon to Fri 9am to 6pm</p>
             </div>
           </div>

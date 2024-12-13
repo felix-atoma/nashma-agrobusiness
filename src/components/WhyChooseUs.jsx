@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FiPhoneCall } from "react-icons/fi";
-import { FaHandsHelping, FaLightbulb, FaUsers, FaBalanceScale, FaSeedling } from "react-icons/fa"; // Import new icons
+import { FaHandsHelping, FaLightbulb, FaSeedling } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const WhyChooseUs = () => {
@@ -10,9 +10,9 @@ const WhyChooseUs = () => {
   const handleButtonClick = () => {
     setLoading(true);
     setTimeout(() => {
-      navigate("/about"); // Navigate after the simulated loading
+      navigate("/about");
       setLoading(false);
-    }, 1000); // Simulate a 1-second load time
+    }, 1000);
   };
 
   return (
@@ -34,20 +34,31 @@ const WhyChooseUs = () => {
           <h1 style={headingStyle}>Why you should choose us</h1>
 
           <p style={paragraphStyle}>
-            In rural Ghanaian cocoa communities, women and youth face idle months during off-seasons, while 70-90% of cocoa pods rot, harming environments and health.
+            In rural Ghanaian cocoa communities, women and youth face idle
+            months during off-seasons, while 70-90% of cocoa pods rot, harming
+            environments and health.
           </p>
           <p style={paragraphStyle}>
-            Our innovative solution empowers women and youth to transform cocoa waste into valuable potash, generating income and sustainability.
+            Our innovative solution empowers women and youth to transform cocoa
+            waste into valuable potash, generating income and sustainability.
           </p>
 
           <ul style={benefitsListStyle}>
-            <li style={listItemStyle}><FaHandsHelping style={iconStyle} /> Economic opportunities for marginalized groups.</li>
-            <li style={listItemStyle}><FaLightbulb style={iconStyle} /> Reduced environmental hazards.</li>
-            <li style={listItemStyle}><FaSeedling style={iconStyle} /> Sustainable cocoa production.</li>
+            <li style={listItemStyle}>
+              <FaHandsHelping style={iconStyle} /> Economic opportunities for
+              marginalized groups.
+            </li>
+            <li style={listItemStyle}>
+              <FaLightbulb style={iconStyle} /> Reduced environmental hazards.
+            </li>
+            <li style={listItemStyle}>
+              <FaSeedling style={iconStyle} /> Sustainable cocoa production.
+            </li>
           </ul>
 
           <p style={paragraphStyle}>
-            Join Nashma Agribusiness in unlocking cocoa waste potential, transforming rural livelihoods.
+            Join Nashma Agribusiness in unlocking cocoa waste potential,
+            transforming rural livelihoods.
           </p>
 
           <button
@@ -150,7 +161,7 @@ const imageStyle = {
 
 const iconStyle = {
   fontSize: "1.5rem",
-  color: "#38A169", // Green color for icons
+  color: "#38A169",
 };
 
 const spinnerStyle = {
@@ -192,13 +203,39 @@ const logoStyle = {
   width: "50px",
 };
 
-// CSS for Spinner Animation
+// Add media queries for responsiveness
 const styleSheet = document.createElement("style");
 styleSheet.type = "text/css";
 styleSheet.innerText = `
   @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+  }
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      padding: 1rem;
+      height: auto;
+    }
+    .text-content {
+      padding-right: 0;
+      text-align: center;
+    }
+    .heading {
+      font-size: 2rem;
+    }
+    .image-content {
+      margin-top: 1rem;
+    }
+  }
+  @media (max-width: 480px) {
+    .heading {
+      font-size: 1.5rem;
+    }
+    .button {
+      font-size: 0.875rem;
+      padding: 0.5rem 1rem;
+    }
   }
 `;
 document.head.appendChild(styleSheet);

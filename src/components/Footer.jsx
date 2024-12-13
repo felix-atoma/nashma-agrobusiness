@@ -1,25 +1,25 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa'; // Importing some example icons
+import { FaFacebook, FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 const Footer = () => {
   const footerStyle = {
     backgroundColor: '#e6f7e6', // Light green background
     color: '#38a169', // Green text
-    padding: '2rem 0', // Increased padding for a spacious footer
+    padding: '2rem 0',
     textAlign: 'center',
   };
 
   const containerStyle = {
-    maxWidth: '1200px', // Ensure content is centered
+    maxWidth: '1200px',
     margin: '0 auto',
     width: '100%',
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column', // Default to column layout
     alignItems: 'center',
+    gap: '1.5rem',
   };
 
   const logoStyle = {
-    marginBottom: '1rem',
     fontSize: '1.5rem',
     fontWeight: 'bold',
     color: '#38a169',
@@ -27,9 +27,8 @@ const Footer = () => {
 
   const quickLinksStyle = {
     display: 'flex',
-    flexDirection: 'column',
+    flexDirection: 'column', // Default to column layout
     alignItems: 'center',
-    marginTop: '1rem',
     gap: '0.5rem',
   };
 
@@ -41,22 +40,20 @@ const Footer = () => {
   };
 
   const socialLinksStyle = {
-    marginTop: '1rem',
     display: 'flex',
     justifyContent: 'center',
-    gap: '1rem', // Spacing between social media icons
+    gap: '1rem',
   };
 
   const iconStyle = {
-    fontSize: '1.5rem', // Icon size
-    color: '#38a169', // Green color for the icons
+    fontSize: '1.5rem',
+    color: '#38a169',
     transition: 'color 0.3s ease',
   };
 
-  // Social media icons hover effect
   const socialMediaHoverStyle = {
     ...iconStyle,
-    color: '#2f855a', // Darker green when hovered
+    color: '#2f855a',
   };
 
   return (
@@ -67,39 +64,68 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div style={quickLinksStyle}>
-          <a href="/about" style={linkStyle} onMouseOver={(e) => (e.target.style.color = socialMediaHoverStyle.color)} onMouseOut={(e) => (e.target.style.color = linkStyle.color)}>
-            About Us
-          </a>
-          <a href="/services" style={linkStyle} onMouseOver={(e) => (e.target.style.color = socialMediaHoverStyle.color)} onMouseOut={(e) => (e.target.style.color = linkStyle.color)}>
-            Services
-          </a>
-          <a href="/contact" style={linkStyle} onMouseOver={(e) => (e.target.style.color = socialMediaHoverStyle.color)} onMouseOut={(e) => (e.target.style.color = linkStyle.color)}>
-            Contact
-          </a>
-          <a href="/faq" style={linkStyle} onMouseOver={(e) => (e.target.style.color = socialMediaHoverStyle.color)} onMouseOut={(e) => (e.target.style.color = linkStyle.color)}>
-            FAQ
-          </a>
+          {['About Us', 'Services', 'Contact', 'FAQ'].map((link, idx) => (
+            <a
+              key={idx}
+              href={`/${link.toLowerCase().replace(/\s+/g, '')}`}
+              style={linkStyle}
+              onMouseOver={(e) => (e.target.style.color = socialMediaHoverStyle.color)}
+              onMouseOut={(e) => (e.target.style.color = linkStyle.color)}
+            >
+              {link}
+            </a>
+          ))}
         </div>
 
         {/* Social Media Links */}
         <div style={socialLinksStyle}>
-          <a href="https://facebook.com/NashmaAgribusiness" target="_blank" rel="noopener noreferrer">
-            <FaFacebook style={iconStyle} onMouseOver={(e) => (e.target.style.color = socialMediaHoverStyle.color)} onMouseOut={(e) => (e.target.style.color = iconStyle.color)} />
-          </a>
-          <a href="https://instagram.com/nashma_agribusiness" target="_blank" rel="noopener noreferrer">
-            <FaInstagram style={iconStyle} onMouseOver={(e) => (e.target.style.color = socialMediaHoverStyle.color)} onMouseOut={(e) => (e.target.style.color = iconStyle.color)} />
-          </a>
-          <a href="https://tiktok.com/@nashma_agribusines_ltd" target="_blank" rel="noopener noreferrer">
-            <FaInstagram style={iconStyle} onMouseOver={(e) => (e.target.style.color = socialMediaHoverStyle.color)} onMouseOut={(e) => (e.target.style.color = iconStyle.color)} />
-          </a>
-          <a href="https://linkedin.com/in/nashma-agribusiness" target="_blank" rel="noopener noreferrer">
-            <FaLinkedin style={iconStyle} onMouseOver={(e) => (e.target.style.color = socialMediaHoverStyle.color)} onMouseOut={(e) => (e.target.style.color = iconStyle.color)} />
-          </a>
+          {[
+            { href: 'https://facebook.com/NashmaAgribusiness', icon: <FaFacebook /> },
+            { href: 'https://instagram.com/nashma_agribusiness', icon: <FaInstagram /> },
+            { href: 'https://tiktok.com/@nashma_agribusines_ltd', icon: <FaInstagram /> },
+            { href: 'https://linkedin.com/in/nashma-agribusiness', icon: <FaLinkedin /> },
+          ].map((social, idx) => (
+            <a
+              key={idx}
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={iconStyle}
+              onMouseOver={(e) => (e.target.style.color = socialMediaHoverStyle.color)}
+              onMouseOut={(e) => (e.target.style.color = iconStyle.color)}
+            >
+              {social.icon}
+            </a>
+          ))}
         </div>
 
         {/* Copyright */}
-        <p style={{ marginTop: '1rem', fontSize: '0.9rem' }}>&copy; 2024 Nashma Agribusiness Ltd. All Rights Reserved.</p>
+        <p style={{ marginTop: '1rem', fontSize: '0.9rem' }}>
+          &copy; 2024 Nashma Agribusiness Ltd. All Rights Reserved.
+        </p>
       </div>
+
+      {/* Responsive Styles */}
+      <style>
+        {`
+          @media (min-width: 768px) {
+            div[style] {
+              flex-direction: row; /* Switch to row layout for larger screens */
+              justify-content: space-between;
+              align-items: flex-start;
+            }
+
+            div[style]:nth-child(2) { /* Quick links */
+              flex-direction: column; /* Stays vertical */
+              align-items: flex-start;
+            }
+
+            div[style]:nth-child(3) { /* Social media links */
+              justify-content: flex-end;
+            }
+          }
+        `}
+      </style>
     </footer>
   );
 };
