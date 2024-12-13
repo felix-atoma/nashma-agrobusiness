@@ -23,11 +23,22 @@ const ContactForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSending(true);
+
+    // Map formData to match EmailJS template variables
+    const emailData = {
+      to_name: "Nashma Admin",
+      from_name: formData.name,
+      email: formData.email,
+      phone: formData.phone,
+      subject: formData.subject,
+      message: formData.message,
+    };
+
     try {
       await emailjs.send(
         "service_qvw1nee", // Replace with your EmailJS Service ID
         "template_nck1umh", // Replace with your EmailJS Template ID
-        formData,          // Form data with all fields
+        emailData,          // Mapped data
         "QKLwxjX-pqOTBiWsv" // Replace with your EmailJS Public Key
       );
       alert("Your message has been sent!");
@@ -191,7 +202,7 @@ const ContactForm = () => {
             {isSending ? "Sending..." : "Send"}
           </button>
         </form>
-
+        {/* Contact Info Section */}
         <div
           style={{
             flex: "1 1 30%",
