@@ -12,7 +12,6 @@ const ContactForm = () => {
   });
 
   const [isSending, setIsSending] = useState(false);
-  const [success, setSuccess] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -26,12 +25,11 @@ const ContactForm = () => {
     setIsSending(true);
     try {
       await emailjs.send(
-        "service_qvw1nee", // Replace with your service ID
-        "template_nck1umh", // Replace with your template ID
-        formData,
-        "QKLwxjX-pqOTBiWsv" // Replace with your public key
+        "service_qvw1nee", // Replace with your EmailJS Service ID
+        "template_nck1umh", // Replace with your EmailJS Template ID
+        formData,          // Form data with all fields
+        "QKLwxjX-pqOTBiWsv" // Replace with your EmailJS Public Key
       );
-      setSuccess(true);
       alert("Your message has been sent!");
       setFormData({ message: "", name: "", email: "", phone: "", subject: "" });
     } catch (error) {
@@ -212,14 +210,14 @@ const ContactForm = () => {
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <FaPhone size={28} color="#38A169" />
             <div>
-              <p style={{ margin: "0" }}>0244173068</p>
+              <p style={{ margin: "0" }}>0545086577</p>
               <p style={{ margin: "0" }}>Mon to Fri 9am to 6pm</p>
             </div>
           </div>
           <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
             <FaEnvelope size={28} color="#38A169" />
             <div>
-              <p style={{ margin: "0" }}>felixatoma2@gmail.com</p>
+              <p style={{ margin: "0" }}>nashmafarms@gmail.com</p>
               <p style={{ margin: "0" }}>Reach out anytime!</p>
             </div>
           </div>
