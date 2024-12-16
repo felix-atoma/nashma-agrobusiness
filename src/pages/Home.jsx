@@ -127,7 +127,7 @@ const Home = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              style={{                                                                                                                                                                          
+              style={{
                 width: "12px",
                 height: "12px",
                 borderRadius: "50%",
