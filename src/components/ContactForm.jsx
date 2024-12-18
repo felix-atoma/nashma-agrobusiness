@@ -24,7 +24,6 @@ const ContactForm = () => {
     e.preventDefault();
     setIsSending(true);
 
-    // Map formData to match EmailJS template variables
     const emailData = {
       to_name: "Nashma Admin",
       from_name: formData.name,
@@ -38,7 +37,7 @@ const ContactForm = () => {
       await emailjs.send(
         "service_qvw1nee", // Replace with your EmailJS Service ID
         "template_nck1umh", // Replace with your EmailJS Template ID
-        emailData,          // Mapped data
+        emailData, // Mapped data
         "QKLwxjX-pqOTBiWsv" // Replace with your EmailJS Public Key
       );
       alert("Your message has been sent!");
@@ -60,7 +59,9 @@ const ContactForm = () => {
         boxSizing: "border-box",
       }}
     >
-      <div style={{ position: "relative", width: "100%", marginBottom: "2rem" }}>
+      <div
+        style={{ position: "relative", width: "100%", marginBottom: "2rem" }}
+      >
         <img
           src="/20241112_164309.jpg"
           alt="Contact"
@@ -87,6 +88,7 @@ const ContactForm = () => {
           gap: "2rem",
           alignItems: "flex-start",
           flexWrap: "wrap",
+          flexDirection : "row",
         }}
       >
         <form
@@ -95,7 +97,7 @@ const ContactForm = () => {
             flex: "1 1 60%",
             display: "flex",
             flexDirection: "column",
-            gap: "1.5rem",
+            gap: "1rem",
             width: "100%",
           }}
         >
@@ -110,17 +112,16 @@ const ContactForm = () => {
               resize: "none",
               fontSize: "1rem",
               width: "100%",
+              height: "3rem", // Reduced height
             }}
-            rows="6"
+            rows="3"
             required
           />
           <div
             style={{
               display: "flex",
-              flexDirection: "row",
               gap: "1rem",
               width: "100%",
-              flexWrap: "wrap",
             }}
           >
             <input
@@ -130,11 +131,10 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               style={{
-                flex: "1 1 calc(33.333% - 1rem)",
+                flex: "1",
                 padding: "1rem",
                 border: "1px solid #38A169",
                 fontSize: "1rem",
-                minWidth: "200px",
               }}
               required
             />
@@ -145,14 +145,21 @@ const ContactForm = () => {
               value={formData.email}
               onChange={handleChange}
               style={{
-                flex: "1 1 calc(33.333% - 1rem)",
+                flex: "1",
                 padding: "1rem",
                 border: "1px solid #38A169",
                 fontSize: "1rem",
-                minWidth: "200px",
               }}
               required
             />
+          </div>
+          <div
+            style={{
+              display: "flex",
+              gap: "1rem",
+              width: "100%",
+            }}
+          >
             <input
               type="tel"
               name="phone"
@@ -160,28 +167,28 @@ const ContactForm = () => {
               value={formData.phone}
               onChange={handleChange}
               style={{
-                flex: "1 1 calc(33.333% - 1rem)",
+                flex: "1",
                 padding: "1rem",
                 border: "1px solid #38A169",
                 fontSize: "1rem",
-                minWidth: "200px",
+              }}
+              required
+            />
+            <input
+              type="text"
+              name="subject"
+              placeholder="Enter subject"
+              value={formData.subject}
+              onChange={handleChange}
+              style={{
+                flex: "1",
+                padding: "1rem",
+                border: "1px solid #38A169",
+                fontSize: "1rem",
               }}
               required
             />
           </div>
-          <input
-            type="text"
-            name="subject"
-            placeholder="Enter subject"
-            value={formData.subject}
-            onChange={handleChange}
-            style={{
-              padding: "1rem",
-              border: "1px solid #38A169",
-              fontSize: "1rem",
-            }}
-            required
-          />
           <button
             type="submit"
             style={{
@@ -202,7 +209,7 @@ const ContactForm = () => {
             {isSending ? "Sending..." : "Send"}
           </button>
         </form>
-        {/* Contact Info Section */}
+
         <div
           style={{
             flex: "1 1 30%",

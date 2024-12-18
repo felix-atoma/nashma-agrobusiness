@@ -1,6 +1,5 @@
 import React from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import './App.css';
 
 // Importing Layout and Pages
 import RootLayout from './layouts/RootLayout';
@@ -9,7 +8,7 @@ import About from './pages/About';
 import Services from './pages/Services'; // Adjust path
 import Contact from './pages/Contact';   // Adjust path
 import Mission from "./pages/Mission";
-import ServiceDetail from "./pages/ServiceDetail";
+// import ServiceDetail from "./pages/ServiceDetail";
 import FAQPage from "./pages/FAQPage";
 
 function App() {
@@ -40,8 +39,8 @@ function App() {
           element: <Contact />,
         },
         {
-          path: "/services/:serviceId",
-          element: <ServiceDetail />,
+          // path: "/services/:serviceId",
+          // element: <ServiceDetail />,
         },
         {
           path: "/faq",
