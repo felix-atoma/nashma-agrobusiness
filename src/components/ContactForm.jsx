@@ -88,7 +88,6 @@ const ContactForm = () => {
           gap: "2rem",
           alignItems: "flex-start",
           flexWrap: "wrap",
-          flexDirection : "row",
         }}
       >
         <form
@@ -107,12 +106,12 @@ const ContactForm = () => {
             value={formData.message}
             onChange={handleChange}
             style={{
-              padding: "1rem",
+              padding: "0.01",
               border: "1px solid #38A169",
               resize: "none",
               fontSize: "1rem",
               width: "100%",
-              height: "3rem", // Reduced height
+              height: "4rem",
             }}
             rows="3"
             required
@@ -121,6 +120,7 @@ const ContactForm = () => {
             style={{
               display: "flex",
               gap: "1rem",
+              flexDirection: "row",
               width: "100%",
             }}
           >
@@ -157,6 +157,7 @@ const ContactForm = () => {
             style={{
               display: "flex",
               gap: "1rem",
+              flexDirection: "row",
               width: "100%",
             }}
           >

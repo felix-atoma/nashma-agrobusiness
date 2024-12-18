@@ -39,11 +39,12 @@ const About = () => {
       padding: "2rem 0",
     },
     imageContainer: {
-      flex: "1 1 100%", // Default full width
-      maxWidth: "50%", // Half width on larger screens
+      flex: "1 1 45%", // Adjust width
+      maxWidth: "45%", // Control the photo's size
       height: "44vw",
       overflow: "hidden",
       position: "relative",
+      marginRight: "2rem", // Adds a gap between photo and text
     },
     image: {
       width: "100%",
@@ -51,11 +52,12 @@ const About = () => {
       objectFit: "cover",
       objectPosition: "top",
     },
-    textContainer: {
-      flex: "1 1 100%", // Default full width
-      maxWidth: "50%", // Half width on larger screens
-      padding: "2rem",
-      textAlign: "left",
+    textSection: {
+      flex: "1 1 50%", // Adjust width
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+      gap: "2rem",
     },
     heading: {
       fontSize: "2.5rem",
@@ -63,32 +65,23 @@ const About = () => {
       marginBottom: "1.5rem",
       color: "#4A4A4A",
     },
-    pointContainer: {
-      display: "flex",
-      alignItems: "flex-start",
-      gap: "1rem",
-      marginBottom: "1.5rem",
-    },
-    icon: {
-      fontSize: "2rem",
-      color: "#71B34A",
-    },
-    text: {
-      fontSize: "1.1rem",
-      lineHeight: "1.6",
+    textContainer: {
+      fontSize: "1.2rem",
+      lineHeight: "1.8",
       color: "#4A4A4A",
     },
     button: {
-      marginTop: "auto",
-      padding: "0.8rem 1.5rem",
-      backgroundColor: "#71B34A",
-      color: "#FFFFFF",
+      padding: "0.8rem 2rem",
       fontSize: "1rem",
-      fontWeight: "bold",
+      color: "#FFFFFF",
+      backgroundColor: "#4CAF50",
       border: "none",
       borderRadius: "5px",
       cursor: "pointer",
-      transition: "transform 0.3s ease",
+      alignSelf: "flex-start",
+    },
+    buttonHover: {
+      backgroundColor: "#45A049",
     },
   };
 
@@ -101,16 +94,15 @@ const About = () => {
           alt="NASHMA banner"
           style={styles.fullWidthImage}
         />
-        {/* About text in the center of the image */}
         <div style={styles.textContainerOnImage}>
           Imagine a world where waste becomes wealth.
         </div>
       </div>
 
-      {/* Add a gap between sections */}
+      {/* Gap */}
       <div style={{ height: "2rem", backgroundColor: "#FFFFFF" }}></div>
 
-      {/* Full-page width: photo on the left, text on the right */}
+      {/* Photo and Text Section */}
       <div style={styles.container}>
         {/* Left Image */}
         <div style={styles.imageContainer}>
@@ -121,45 +113,22 @@ const About = () => {
           />
         </div>
 
-        {/* Right Text */}
-        <div style={styles.textContainer}>
-          <h2 style={styles.heading}>Empowering Communities Through Innovation</h2>
-          <div style={styles.pointContainer}>
-            <FaHandsHelping style={styles.icon} />
-            <p style={styles.text}>
+        {/* Right Text Section */}
+        <div style={styles.textSection}>
+          {/* Main Text */}
+          <div>
+            <h2 style={styles.heading}>Empowering Communities Through Innovation</h2>
+            <p style={styles.textContainer}>
               At NASHMA, we empower women, young people, and individuals with
-              disabilities to turn cocoa waste into wealth by converting cocoa
-              pods into potash and connecting them with direct markets.
-            </p>
-          </div>
-          <div style={styles.pointContainer}>
-            <FaChalkboardTeacher style={styles.icon} />
-            <p style={styles.text}>
-              We provide training and set up processing facilities, ensuring
-              our beneficiaries can focus on production without the burden of
-              searching for buyers.
-            </p>
-          </div>
-          <div style={styles.pointContainer}>
-            <FaSeedling style={styles.icon} />
-            <p style={styles.text}>
-              Potash produced by our communities is used in industries such as
-              black soap production, water treatment, and food preservation.
-            </p>
-          </div>
-          <div style={styles.pointContainer}>
-            <FaShippingFast style={styles.icon} />
-            <p style={styles.text}>
-              We handle logistics and ensure the processed potash reaches
-              diverse industries, enabling sustainable income for our partners.
+              disabilities to turn cocoa waste into wealth by converting cocoa pods
+              into potash and connecting them with direct markets. Potash is a key
+              component for various industries, ensuring sustainable income for
+              our partners.
             </p>
           </div>
 
-          {/* Read More About Us Button */}
-          <button
-            style={styles.button}
-            onClick={() => console.log("Navigating to more about us...")}
-          >
+          {/* "Read More About Us" Button */}
+          <button style={styles.button}>
             Read More About Us
           </button>
         </div>
